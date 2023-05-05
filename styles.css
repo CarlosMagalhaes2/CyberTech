@@ -1,5 +1,5 @@
 .navbar {
-    height: 5rem;
+    height: 4.5rem;
     background-color: #0d2929;
 }
 
@@ -12,7 +12,7 @@ a:nav-home {
 }
 
 body {
-    background-color: #161616;
+    background-color: #f2f2f2;
 }
 
 
@@ -22,6 +22,14 @@ body {
     background-color: #0d2929;
     color: #E7F6F2;
     width: 150px;
+}
+
+.btn-pesquisa {
+    height: 2.5rem !important;
+    width: 2.5rem !important;
+    border: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 
@@ -39,14 +47,12 @@ body {
 }
 
 
-
-
-
 .btn-carrinho {
     border-width: none;
     border-color: none;
     background-color: #0d2929;
     color: #E7F6F2;
+    margin-left: 25px !important;
 }
 
 .icon {
@@ -117,6 +123,9 @@ footer {
     color: white;
 }
 
+.dropend{
+    margin-right: -10 !important;
+}
 .centered {
     position: absolute;
     top: 50%;
@@ -150,9 +159,7 @@ footer {
 
 }
 
-.form-pesquisa {
-    margin-top: 3px !important;
-}
+
 
 .link-quadrados {
     color: #E7F6F2;
@@ -185,6 +192,10 @@ footer {
 .card-img-top {
     margin-top: 15px;
     border-radius: 10px;
+}
+
+.tamanho-user{
+    font-size: 20px !important;
 }
 
 .preco {
@@ -402,6 +413,10 @@ td,
 tr {
     padding: 15px;
     padding-right: 20px !important;
+}
+
+.offcanvas{
+    background-color: #0d2929;
 }
 
 .font-25 {
