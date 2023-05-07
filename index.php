@@ -109,7 +109,7 @@ session_start();
   </div>
 
   <div class="container-fluid">
-    <div class="row mt-3">
+    <div class="row mt-5">
       <p class="texto-destaques">
         <span class="texto-destaques ml-5"><img src="imgs/barra.webp" height="30px" class="barra"> Produtos em Destaque</span>
       </p>
