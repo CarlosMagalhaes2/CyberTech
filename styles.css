@@ -12,7 +12,7 @@ a:nav-home {
 }
 
 body {
-    background-color: #f2f2f2;
+    background-color: #f8f8f8;
 }
 
 
@@ -162,7 +162,7 @@ footer {
 
 
 .link-quadrados {
-    color: #E7F6F2;
+    color: black ;
 
 }
 
@@ -182,18 +182,27 @@ footer {
 
 .texto-destaques {
     font-size: 20px;
-    color: #E7F6F2;
+    color: black !important;
 }
 
 .barra {
     margin-top: -5px;
 }
 
-.card-img-top {
-    margin-top: 15px;
-    border-radius: 10px;
+.card-body{
+    padding-top: 0px !important;
 }
 
+.card-img-top {
+    margin-top: 10px !important;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.192);
+
+}
+
+.card-footer {
+    margin-top: -15px !important;
+}
 .tamanho-user{
     font-size: 20px !important;
 }
@@ -202,7 +211,6 @@ footer {
     align-self: left;
     font-size: 20px;
     color: #00A0B8;
-    font-weight: bold;
 }
 
 .text-truncate-2 {
@@ -226,6 +234,22 @@ footer {
     table-layout: fixed;
 }
 
+.card{
+    -webkit-box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.75);
+    background-color: white !important;
+    --bs-card-cap-bg: rgb(255 255 255 / 3%);
+}
+
+.card-title{
+    color: #00A0B8;
+}
+
+.card-text{
+    background-color: white;
+}
+
 tr {
     line-height: 40px;
 }
@@ -234,7 +258,7 @@ tr {
     text-decoration: line-through;
     margin-bottom: 5px;
     font-size: 14px;
-    color: #E7F6F2;
+    color: black;
 
 }
 
@@ -244,8 +268,9 @@ tr {
     align-self: end !important;
     font-size: 20px;
     color: #00A0B8;
-    font-weight: bold;
+    font-weight: 500;
 }
+
 
 .navbar-admin {
     margin-top: 0px;
@@ -308,7 +333,7 @@ tr {
     align-self: left;
     font-size: 22px;
     color: #00A0B8;
-    font-weight: bold;
+
 }
 
 .text_white {
@@ -475,3 +500,10 @@ tr {
  .navbar-header:hover{
     color:#00A0B8;
  }
+
+.caixa-index{
+    -webkit-box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 9px 1px rgba(0,0,0,0.75);
+    background-color: white !important;
+}

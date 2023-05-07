@@ -63,33 +63,53 @@ session_start();
     </div>
   </div>
 
-  <div class="container-fluid text-center">
-    <div class="row justify-content-center mx-3">
-      <div class="col-lg-3 col-md-6 col-sm-12 ">
-        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/portateisQuadrado.webp" width="300px">
+  <div class="container-fluid caixa-index text-center">
+    <div class="row justify-content-between mx-3">
+      <div class="col-lg mt-2">
+        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/laptop.png" width="120px">
           <p>Portáteis</p>
         </a>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-12">
-        <a class="link-quadrados" href="categorias.php?Categoria='Desktops'"><img src="imgs/desktopsQuadrado.webp" width="300px">
-          <p>Desktops</p>
+      <div class="col-lg mt-2">
+        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/laptop.png" width="120px">
+          <p>Portáteis</p>
         </a>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-12">
-        <a class="link-quadrados" href="categorias.php?Categoria='Smartphones'"><img src="imgs/telemoveisQuadrado.webp" width="300px">
-          <p>Smartphones</p>
+      <div class="col-lg mt-2">
+        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/laptop.png" width="120px">
+          <p>Portáteis</p>
         </a>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-12">
-        <a class="link-quadrados" href="categorias.php?Categoria='Monitores'"><img src="imgs/monitoresQuadrado.webp" width="300px">
-          <p>Monitores e Televisões</p>
+      <div class="col-lg mt-2">
+        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/laptop.png" width="120px">
+          <p>Portáteis</p>
+        </a>
+      </div>
+      <div class="col-lg mt-2">
+        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/laptop.png" width="120px">
+          <p>Portáteis</p>
+        </a>
+      </div>
+      <div class="col-lg mt-2">
+        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/laptop.png" width="120px">
+          <p>Portáteis</p>
+        </a>
+      </div>
+      <div class="col-lg mt-2">
+        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/laptop.png" width="120px">
+          <p>Portáteis</p>
+        </a>
+      </div>
+      <div class="col-lg mt-2">
+        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/laptop.png" width="120px">
+          <p>Portáteis</p>
         </a>
       </div>
     </div>
   </div>
 
   <div class="container-fluid">
-    <div class="row mx-1">
+    <div class="row mt-3">
       <p class="texto-destaques">
         <span class="texto-destaques ml-5"><img src="imgs/barra.webp" height="30px" class="barra"> Produtos em Destaque</span>
       </p>
@@ -109,27 +129,27 @@ session_start();
       ?>
 
 
-          <div class="card text-white bg-dark mx-3 text-start d-flex" style="width: 18rem;">
-            <a href="detalhes.php?ID=<?php echo $row['ID'] ?>">
-              <img class="card-img-top" src="imgs/produtos/<?php echo $row["ImagemPrincipal"] ?>" alt="Card image cap">
+          <div class="card mx-3 text-start d-flex" style="width: 18rem;">
+            <a href="detalhes.php?ID=<?php echo $row['id'] ?>">
+              <img class="card-img-top" src="imgs/produtos/<?php echo $row["foto_principal"] ?>" alt="Card image cap">
             </a>
             <div class="card-body align-items-end pb-0">
-              <h6 class="card-header text-truncate-2 px-0"><?php echo $row["Nome"] ?> <br>
+              <h6 class="card-header card-title text-truncate-2 px-0"><?php echo $row["nome"] ?> <br>
                   <span style="color:transparent"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-0-circle" viewBox="0 0 16 16">
                       <path d="M7.988 12.158c-1.851 0-2.941-1.57-2.941-3.99V7.84c0-2.408 1.101-3.996 2.965-3.996 1.857 0 2.935 1.57 2.935 3.996v.328c0 2.408-1.101 3.99-2.959 3.99ZM8 4.951c-1.008 0-1.629 1.09-1.629 2.895v.31c0 1.81.627 2.895 1.629 2.895s1.623-1.09 1.623-2.895v-.31c0-1.8-.621-2.895-1.623-2.895Z" />
                       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Z" />
                     </svg>
                   </span> </h6>
               <div class="card-text align-items-middle">
-                <p class="font-12 text-truncate-2"><?php echo $row["ResumoCategorias"] ?></p>
+                <p class="font-12 text-truncate-2"><?php echo $row["resumo_produto"] ?></p>
               </div>
             </div>
             <div class="card-footer align-items-end justify-content-end pt-0 pb-0">
               <div class="card-text">
-                <?php if ($row["Desconto"] == 0) {
+                <?php if ($row["desconto"] == 0) {
                 ?>
 
-                  <span class="preco"><?php echo $row["Preco"] ?> €</span><br>
+                  <span class="preco"><?php echo $row["preco"] ?> €</span><br>
                   <span style="color:transparent"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-0-circle" viewBox="0 0 16 16">
                       <path d="M7.988 12.158c-1.851 0-2.941-1.57-2.941-3.99V7.84c0-2.408 1.101-3.996 2.965-3.996 1.857 0 2.935 1.57 2.935 3.996v.328c0 2.408-1.101 3.99-2.959 3.99ZM8 4.951c-1.008 0-1.629 1.09-1.629 2.895v.31c0 1.81.627 2.895 1.629 2.895s1.623-1.09 1.623-2.895v-.31c0-1.8-.621-2.895-1.623-2.895Z" />
                       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Z" />
@@ -137,11 +157,11 @@ session_start();
                   </span>
 
                 <?php
-                } elseif ($row["Desconto"] == 1) {
-                  $precoDesconto = $row["Preco"] - $row["ValorDesconto"]
+                } elseif ($row["desconto"] == 1) {
+                  $preco_desconto = $row["preco"] - $row["valor_desconto"]
                 ?>
-                  <span class="preco-desconto mt-n3"> <?php echo $precoDesconto ?> € </span><span class="badge text-bg-warning">-<?php echo $row["ValorDesconto"] ?> €</span>
-                  <p class="preco-riscado"> <?php echo $row["Preco"] ?> €</p>
+                  <span class="preco-desconto mt-n3"> <?php echo $preco_desconto ?> € </span><span class="badge text-bg-warning">-<?php echo $row["valor_desconto"] ?> €</span>
+                  <p class="preco-riscado"> <?php echo $row["preco"] ?> €</p>
 
                 <?php
                 }
@@ -156,7 +176,7 @@ session_start();
       ?>
     </div>
   </div>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row mt-3 mx-1 align-center">
       <img src="imgs/banner1.webp" width="1400px" style="  border-radius: 25px; padding: 20px;">
     </div>
