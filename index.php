@@ -71,38 +71,38 @@ session_start();
         </a>
       </div>
       <div class="col-lg mt-2">
-        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/laptop.png" width="120px">
-          <p>Portáteis</p>
+        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/Desktops.png" width="120px">
+          <p>Desktops</p>
         </a>
       </div>
       <div class="col-lg mt-2">
-        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/laptop.png" width="120px">
-          <p>Portáteis</p>
+        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/Componentes.png" width="120px">
+          <p>Componentes</p>
         </a>
       </div>
       <div class="col-lg mt-2">
-        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/laptop.png" width="120px">
-          <p>Portáteis</p>
+        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/Smartphones.png" width="120px">
+          <p>Smartphones</p>
         </a>
       </div>
       <div class="col-lg mt-2">
-        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/laptop.png" width="120px">
-          <p>Portáteis</p>
+        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/Monitores.png" width="120px">
+          <p>Imagem e som</p>
         </a>
       </div>
       <div class="col-lg mt-2">
-        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/laptop.png" width="120px">
-          <p>Portáteis</p>
+        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/Perifericos.png" width="120px">
+          <p>Perifericos</p>
         </a>
       </div>
       <div class="col-lg mt-2">
-        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/laptop.png" width="120px">
-          <p>Portáteis</p>
+        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/Cabos.png" width="120px">
+          <p>Cabos e Acessórios</p>
         </a>
       </div>
       <div class="col-lg mt-2">
-        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/laptop.png" width="120px">
-          <p>Portáteis</p>
+        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/Consolas.png" width="120px">
+          <p>Consolas</p>
         </a>
       </div>
     </div>
