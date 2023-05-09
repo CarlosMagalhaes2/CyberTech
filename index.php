@@ -116,12 +116,12 @@ session_start();
     </div>
   </div>
   <div class="container-fluid text-center">
-    <div class="row justify-content-center">
+    <div class="row justify-content-between">
 
       <?php
       $destaques = "SELECT * 
       FROM produtos 
-      WHERE Destaque = 1 LIMIT 4";
+      WHERE Destaque = 1 LIMIT 5";
 
       $resultadoDestaques = $ligacao->query($destaques);
       if ($resultadoDestaques->num_rows > 0) {
@@ -130,26 +130,26 @@ session_start();
 
 
           <div class="card mx-3 text-start d-flex" style="width: 18rem;">
-            <a href="detalhes.php?ID=<?php echo $row['id'] ?>">
-              <img class="card-img-top" src="imgs/produtos/<?php echo $row["foto_principal"] ?>" alt="Card image cap">
+            <a href="detalhes.php?ID=<?php echo $row['ID'] ?>">
+              <img class="card-img-top" src="imgs/produtos/<?php echo $row["ImagemPrincipal"] ?>" alt="Card image cap">
             </a>
             <div class="card-body align-items-end pb-0">
-              <h6 class="card-header card-title text-truncate-2 px-0"><?php echo $row["nome"] ?> <br>
+              <h6 class="card-header card-title text-truncate-2 px-0"><?php echo $row["Nome"] ?> <br>
                   <span style="color:transparent"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-0-circle" viewBox="0 0 16 16">
                       <path d="M7.988 12.158c-1.851 0-2.941-1.57-2.941-3.99V7.84c0-2.408 1.101-3.996 2.965-3.996 1.857 0 2.935 1.57 2.935 3.996v.328c0 2.408-1.101 3.99-2.959 3.99ZM8 4.951c-1.008 0-1.629 1.09-1.629 2.895v.31c0 1.81.627 2.895 1.629 2.895s1.623-1.09 1.623-2.895v-.31c0-1.8-.621-2.895-1.623-2.895Z" />
                       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Z" />
                     </svg>
                   </span> </h6>
               <div class="card-text align-items-middle">
-                <p class="font-12 text-truncate-2"><?php echo $row["resumo_produto"] ?></p>
+                <p class="font-12 text-truncate-2"><?php echo $row["Resumo"] ?></p>
               </div>
             </div>
             <div class="card-footer align-items-end justify-content-end pt-0 pb-0">
               <div class="card-text">
-                <?php if ($row["desconto"] == 0) {
+                <?php if ($row["Desconto"] == 0) {
                 ?>
 
-                  <span class="preco"><?php echo $row["preco"] ?> €</span><br>
+                  <span class="preco"><?php echo $row["Preco"] ?> €</span><br>
                   <span style="color:transparent"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-0-circle" viewBox="0 0 16 16">
                       <path d="M7.988 12.158c-1.851 0-2.941-1.57-2.941-3.99V7.84c0-2.408 1.101-3.996 2.965-3.996 1.857 0 2.935 1.57 2.935 3.996v.328c0 2.408-1.101 3.99-2.959 3.99ZM8 4.951c-1.008 0-1.629 1.09-1.629 2.895v.31c0 1.81.627 2.895 1.629 2.895s1.623-1.09 1.623-2.895v-.31c0-1.8-.621-2.895-1.623-2.895Z" />
                       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Z" />
@@ -157,11 +157,11 @@ session_start();
                   </span>
 
                 <?php
-                } elseif ($row["desconto"] == 1) {
-                  $preco_desconto = $row["preco"] - $row["valor_desconto"]
+                } elseif ($row["Desconto"] == 1) {
+                  $preco_desconto = $row["Preco"] - $row["ValorDesconto"]
                 ?>
-                  <span class="preco-desconto mt-n3"> <?php echo $preco_desconto ?> € </span><span class="badge text-bg-warning">-<?php echo $row["valor_desconto"] ?> €</span>
-                  <p class="preco-riscado"> <?php echo $row["preco"] ?> €</p>
+                  <span class="preco-desconto mt-n3"> <?php echo $preco_desconto ?> € </span><span class="badge text-bg-warning">-<?php echo $row["ValorDesconto"] ?> €</span>
+                  <p class="preco-riscado"> <?php echo $row["Preco"] ?> €</p>
 
                 <?php
                 }
@@ -181,54 +181,56 @@ session_start();
       <img src="imgs/banner1.webp" width="1400px" style="  border-radius: 25px; padding: 20px;">
     </div>
   </div>
-  <div class="container mt-3">
+  <div class="container-fluid mt-3">
     <div class="row mx-1">
       <p class="texto-destaques">
         <span class="texto-destaques ml-5"><img src="imgs/barra.webp" height="30px" class="barra"> Promoções</span>
       </p>
     </div>
   </div>
-  <div class="container text-center">
-    <div class="row justify-content-center ">
+  <div class="container-fluid text-center">
+    <div class="row justify-content-between ">
 
       <?php
       $descontos = "SELECT * 
     FROM produtos
-    WHERE Desconto = 1 LIMIT 4";
+    WHERE Desconto = 1 LIMIT 5";
       $resultadoDescontos = $ligacao->query($descontos);
       if ($resultadoDescontos->num_rows > 0) {
         while ($row = $resultadoDescontos->fetch_assoc()) {
       ?>
-          <div class="card text-white bg-dark mx-3 text-start d-flex" style="width: 18rem;">
+          <div class="card mx-3 text-start d-flex" style="width: 18rem;">
             <a href="detalhes.php?ID=<?php echo $row['ID'] ?>">
               <img class="card-img-top" src="imgs/produtos/<?php echo $row["ImagemPrincipal"] ?>" alt="Card image cap">
             </a>
             <div class="card-body align-items-end pb-0">
-              <h6 class="card-header text-truncate-2 px-0"><?php echo $row["Nome"] ?>  <br>
+              <h6 class="card-header card-title text-truncate-2 px-0"><?php echo $row["Nome"] ?> <br>
                   <span style="color:transparent"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-0-circle" viewBox="0 0 16 16">
                       <path d="M7.988 12.158c-1.851 0-2.941-1.57-2.941-3.99V7.84c0-2.408 1.101-3.996 2.965-3.996 1.857 0 2.935 1.57 2.935 3.996v.328c0 2.408-1.101 3.99-2.959 3.99ZM8 4.951c-1.008 0-1.629 1.09-1.629 2.895v.31c0 1.81.627 2.895 1.629 2.895s1.623-1.09 1.623-2.895v-.31c0-1.8-.621-2.895-1.623-2.895Z" />
                       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Z" />
                     </svg>
-                  </span>  </h6>
+                  </span> </h6>
               <div class="card-text align-items-middle">
-                <p class="font-12 text-truncate-2"><?php echo $row["ResumoCategorias"] ?></p>
+                <p class="font-12 text-truncate-2"><?php echo $row["Resumo"] ?></p>
               </div>
             </div>
             <div class="card-footer align-items-end justify-content-end pt-0 pb-0">
               <div class="card-text">
                 <?php if ($row["Desconto"] == 0) {
                 ?>
+
                   <span class="preco"><?php echo $row["Preco"] ?> €</span><br>
                   <span style="color:transparent"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-0-circle" viewBox="0 0 16 16">
                       <path d="M7.988 12.158c-1.851 0-2.941-1.57-2.941-3.99V7.84c0-2.408 1.101-3.996 2.965-3.996 1.857 0 2.935 1.57 2.935 3.996v.328c0 2.408-1.101 3.99-2.959 3.99ZM8 4.951c-1.008 0-1.629 1.09-1.629 2.895v.31c0 1.81.627 2.895 1.629 2.895s1.623-1.09 1.623-2.895v-.31c0-1.8-.621-2.895-1.623-2.895Z" />
                       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Z" />
                     </svg>
                   </span>
+
                 <?php
                 } elseif ($row["Desconto"] == 1) {
-                  $precoDesconto = $row["Preco"] - $row["ValorDesconto"]
+                  $preco_desconto = $row["Preco"] - $row["ValorDesconto"]
                 ?>
-                  <span class="preco-desconto mt-n3"> <?php echo $precoDesconto ?> € </span> <span class="badge text-bg-warning">-<?php echo $row["ValorDesconto"] ?> €</span>
+                  <span class="preco-desconto mt-n3"> <?php echo $preco_desconto ?> € </span><span class="badge text-bg-warning">-<?php echo $row["ValorDesconto"] ?> €</span>
                   <p class="preco-riscado"> <?php echo $row["Preco"] ?> €</p>
 
                 <?php
@@ -245,60 +247,62 @@ session_start();
 
     </div>
   </div>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row mt-3 mx-1 align-center">
       <img src="imgs/banner2.webp" width="1400px" style="  border-radius: 25px; padding: 20px;">
     </div>
   </div>
-  <div class="container mt-3">
+  <div class="container-fluid mt-3">
     <div class="row mx-1">
       <p class="texto-destaques">
         <span class="texto-destaques ml-5"><img src="imgs/barra.webp" height="30px" class="barra"> Novidades</span>
       </p>
     </div>
   </div>
-  <div class="container text-center">
-    <div class="row justify-content-center ">
+  <div class="container-fluid text-center">
+    <div class="row justify-content-between ">
 
       <?php
       $novidades = "SELECT * 
     FROM produtos
     ORDER BY ID DESC
-    LIMIT 4";
+    LIMIT 5";
       $resultadoNovidades = $ligacao->query($novidades);
       if ($resultadoNovidades->num_rows > 0) {
         while ($row = $resultadoNovidades->fetch_assoc()) {
       ?>
-          <div class="card text-white bg-dark mx-3 text-start d-flex" style="width: 18rem;">
+          <div class="card mx-3 text-start d-flex" style="width: 18rem;">
             <a href="detalhes.php?ID=<?php echo $row['ID'] ?>">
               <img class="card-img-top" src="imgs/produtos/<?php echo $row["ImagemPrincipal"] ?>" alt="Card image cap">
             </a>
             <div class="card-body align-items-end pb-0">
-              <h6 class="card-header text-truncate-2 px-0"><?php echo $row["Nome"] ?>  <br>
+              <h6 class="card-header card-title text-truncate-2 px-0"><?php echo $row["Nome"] ?> <br>
                   <span style="color:transparent"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-0-circle" viewBox="0 0 16 16">
                       <path d="M7.988 12.158c-1.851 0-2.941-1.57-2.941-3.99V7.84c0-2.408 1.101-3.996 2.965-3.996 1.857 0 2.935 1.57 2.935 3.996v.328c0 2.408-1.101 3.99-2.959 3.99ZM8 4.951c-1.008 0-1.629 1.09-1.629 2.895v.31c0 1.81.627 2.895 1.629 2.895s1.623-1.09 1.623-2.895v-.31c0-1.8-.621-2.895-1.623-2.895Z" />
                       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Z" />
                     </svg>
-                  </span>  </h6>
+                  </span> </h6>
               <div class="card-text align-items-middle">
-                <p class="font-12 text-truncate-2"><?php echo $row["ResumoCategorias"] ?></p>
+                <p class="font-12 text-truncate-2"><?php echo $row["Resumo"] ?></p>
               </div>
             </div>
             <div class="card-footer align-items-end justify-content-end pt-0 pb-0">
               <div class="card-text">
                 <?php if ($row["Desconto"] == 0) {
                 ?>
+
                   <span class="preco"><?php echo $row["Preco"] ?> €</span><br>
                   <span style="color:transparent"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-0-circle" viewBox="0 0 16 16">
                       <path d="M7.988 12.158c-1.851 0-2.941-1.57-2.941-3.99V7.84c0-2.408 1.101-3.996 2.965-3.996 1.857 0 2.935 1.57 2.935 3.996v.328c0 2.408-1.101 3.99-2.959 3.99ZM8 4.951c-1.008 0-1.629 1.09-1.629 2.895v.31c0 1.81.627 2.895 1.629 2.895s1.623-1.09 1.623-2.895v-.31c0-1.8-.621-2.895-1.623-2.895Z" />
                       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Z" />
                     </svg>
                   </span>
+
                 <?php
                 } elseif ($row["Desconto"] == 1) {
-                  $precoDesconto = $row["Preco"] - $row["ValorDesconto"]
+                  $preco_desconto = $row["Preco"] - $row["ValorDesconto"]
                 ?>
-                  <span class="preco-desconto mt-n3"> <?php echo $precoDesconto ?> € </span> <span class="badge text-bg-warning">-<?php echo $row["ValorDesconto"] ?> €</span>
+                  <span class="preco-desconto mt-n3"> <?php echo $preco_desconto ?> € </span><span class="badge text-bg-warning">-<?php echo $row["ValorDesconto"] ?> €</span>
                   <p class="preco-riscado"> <?php echo $row["Preco"] ?> €</p>
 
                 <?php

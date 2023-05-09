@@ -103,7 +103,7 @@
       <!-- User -->
       <li class="nav-item">
         <a class="btn btn-carrinho tamanho-user" href="/CyberTech/login.php">
-          Ola, User
+          Login/Registrar
         </a>
       </li>
     </div>

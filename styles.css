@@ -55,6 +55,19 @@ body {
     margin-left: 25px !important;
 }
 
+.btn-carrinho:hover{
+    color:#00A0B8 !important;
+}
+
+.btn-carrinho:active{
+    color:#00A0B8 !important;
+}
+
+.btn-carrinho:focus{
+    color: #00A0B8 !important;
+    border: none !important;
+}
+
 .icon {
     color: #E7F6F2;
     width: 30px;
@@ -207,10 +220,14 @@ footer {
     font-size: 20px !important;
 }
 
+
 .preco {
-    align-self: left;
+    border-top: -10px !important;
+    margin-bottom: 16px;
+    align-self: end !important;
     font-size: 20px;
     color: #00A0B8;
+    font-weight: 500;
 }
 
 .text-truncate-2 {
