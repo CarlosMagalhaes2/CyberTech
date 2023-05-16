@@ -136,7 +136,7 @@ session_start();
       if ($resultadoDestaques->num_rows > 0) {
         while ($row = $resultadoDestaques->fetch_assoc()) {
           ?>
-          <div class="card mx-3 text-start d-flex" style="width: 18rem;">
+          <div class="card mx-3 text-start d-flex" style="width: 18rem">
             <a href="detalhes.php?ID=<?php echo $row['ID'] ?>">
               <img class="card-img-top" src="imgs/produtos/<?php echo $row["ImagemPrincipal"] ?>" alt="Card image cap">
             </a>
