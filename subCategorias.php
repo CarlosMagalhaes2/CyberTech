@@ -28,12 +28,12 @@ include_once("ligacao.php");
     <div class="row mt-3">
 
       <?php
-      $Categoria = $_GET['Categoria'];
+      $SubCategoria = $_GET['SubCategoria'];
       $consulta = "SELECT * FROM produtos
-      where Categoria = $Categoria";
+      where SubCategoria = $SubCategoria";
 
-      $consultaCategoria = "SELECT Categoria FROM produtos 
-      where Categoria = $Categoria
+      $consultaCategoria = "SELECT SubCategoria FROM produtos 
+      where SubCategoria = $SubCategoria
       LIMIT 1";
 
       $resultado = $ligacao->query($consulta);
@@ -45,7 +45,7 @@ include_once("ligacao.php");
         while ($row = $resultadoCategoria->fetch_assoc()) {
           ?>
           <span class="texto-destaques ml-5"><img src="imgs/barra.webp" height="30px" class="barra">
-            <?php echo $row["Categoria"] ?>
+            <?php echo $row["SubCategoria"] ?>
           </span>
 
           <?php

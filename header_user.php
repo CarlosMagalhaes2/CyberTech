@@ -10,69 +10,172 @@ session_start();
             data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
-        <div class="accordion accordion-flush" id="accordionExample">
+        <div class="accordion accordion-flush" id="menu">
+            <!-- Portateis -->
             <div class="accordion-item">
                 <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Accordion Item #1
+                    <button class="accordion-button collapsed tamanho-user" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#Portateis" aria-expanded="false" aria-controls="Portateis">
+                        <img src="imgs/icons/laptopSemCirculo.png" width="35px" class="pd-5"> Portáteis
                     </button>
                 </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div id="Portateis" class="accordion-collapse collapse" data-bs-parent="#menu">
                     <div class="accordion-body">
                         <ul class="dropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Portáteis Windows</a></li>
+                            <li><a class="dropdown-item" href="#">Portáteis Apple</a></li>
+                            <li><a class="dropdown-item" href="#">Todos</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
+            <!-- Desktops -->
             <div class="accordion-item">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Accordion Item #2
+                    <button class="accordion-button collapsed tamanho-user" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#Desktops" aria-expanded="false" aria-controls="Desktops">
+                        <img src="imgs/icons/desktopsSemCirculo.png" width="35px" class="pd-5"> Desktops
                     </button>
                 </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div id="Desktops" class="accordion-collapse collapse" data-bs-parent="#menu">
                     <div class="accordion-body">
-                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the
-                        collapse
-                        plugin adds the appropriate classes that we use to style each element. These classes control the
-                        overall
-                        appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
-                        with custom
-                        CSS or overriding our default variables. It's also worth noting that just about any HTML can go
-                        within the
-                        <code>.accordion-body</code>, though the transition does limit overflow.
+                        <ul class="dropdown">
+                            <li><a class="dropdown-item" href="#">Desktops Gaming</a></li>
+                            <li><a class="dropdown-item" href="#">Workstations</a></li>
+                            <li><a class="dropdown-item" href="#">Computadores All-in-one</a></li>
+                            <li><a class="dropdown-item" href="#">Todos</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
+            <!-- Componentes -->
             <div class="accordion-item">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Accordion Item #3
+                    <button class="accordion-button collapsed tamanho-user" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#Componentes" aria-expanded="false" aria-controls="Componentes">
+                        <img src="imgs/icons/ComponentesSemCirculo.png" width="35px" class="pd-5"> Componentes
                     </button>
                 </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div id="Componentes" class="accordion-collapse collapse" data-bs-parent="#menu">
                     <div class="accordion-body">
-                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
-                        collapse
-                        plugin
-                        adds the appropriate classes that we use to style each element. These classes control the
-                        overall
-                        appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
-                        with custom
-                        CSS or overriding our default variables. It's also worth noting that just about any HTML can go
-                        within the
-                        <code>.accordion-body</code>, though the transition does limit overflow.
+                        <ul class="dropdown">
+                            <li><a class="dropdown-item" href="#">Portáteis Windows</a></li>
+                            <li><a class="dropdown-item" href="#">Portáteis Apple</a></li>
+                            <li><a class="dropdown-item" href="#">Todos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Smartphones -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed tamanho-user" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#Smartphones" aria-expanded="false" aria-controls="Smartphones">
+                        <img src="imgs/icons/SmartphonesSemCirculo.png" width="35px" class="pd-5"> Smartphones
+                    </button>
+                </h2>
+                <div id="Smartphones" class="accordion-collapse collapse" data-bs-parent="#menu">
+                    <div class="accordion-body">
+                        <ul class="dropdown">
+                            <li><a class="dropdown-item" href="#">Portáteis Windows</a></li>
+                            <li><a class="dropdown-item" href="#">Portáteis Apple</a></li>
+                            <li><a class="dropdown-item" href="#">Todos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Som -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed tamanho-user" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#Som" aria-expanded="false" aria-controls="Som">
+                        <img src="imgs/icons/SomSemCirculo.png" width="35px" class="pd-5"> Som
+                    </button>
+                </h2>
+                <div id="Som" class="accordion-collapse collapse" data-bs-parent="#menu">
+                    <div class="accordion-body">
+                        <ul class="dropdown">
+                            <li><a class="dropdown-item" href="#">Monitores</a></li>
+                            <li><a class="dropdown-item" href="#">Televisões</a></li>
+                            <li><a class="dropdown-item" href="#">Todos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Imagem -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed tamanho-user" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#Imagem" aria-expanded="false" aria-controls="Imagem">
+                        <img src="imgs/icons/MonitoresSemCiruclo.png" width="35px" class="pd-5"> Imagem
+                    </button>
+                </h2>
+                <div id="Imagem" class="accordion-collapse collapse" data-bs-parent="#menu">
+                    <div class="accordion-body">
+                        <ul class="dropdown">
+                            <li><a class="dropdown-item" href="#">Monitores</a></li>
+                            <li><a class="dropdown-item" href="#">Televisões</a></li>
+                            <li><a class="dropdown-item" href="#">Todos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Perifericos -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed tamanho-user" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#Perifericos" aria-expanded="false" aria-controls="Perifericos">
+                        <img src="imgs/icons/PerifericosSemCirculo.png" width="35px" class="pd-5"> Periféricos
+                    </button>
+                </h2>
+                <div id="Perifericos" class="accordion-collapse collapse" data-bs-parent="#menu">
+                    <div class="accordion-body">
+                        <ul class="dropdown">
+                            <li><a class="dropdown-item" href="#">Portáteis Windows</a></li>
+                            <li><a class="dropdown-item" href="#">Portáteis Apple</a></li>
+                            <li><a class="dropdown-item" href="#">Todos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Cabos e Acessórios -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed tamanho-user" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#CabosAcessorios" aria-expanded="false" aria-controls="CabosAcessorios">
+                        <img src="imgs/icons/CabosSemCirculo.png" width="35px" class="pd-5"> Cabos e Acessórios
+                    </button>
+                </h2>
+                <div id="CabosAcessorios" class="accordion-collapse collapse" data-bs-parent="#menu">
+                    <div class="accordion-body">
+                        <ul class="dropdown">
+                            <li><a class="dropdown-item" href="#">Portáteis Windows</a></li>
+                            <li><a class="dropdown-item" href="#">Portáteis Apple</a></li>
+                            <li><a class="dropdown-item" href="#">Todos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Consolas -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed tamanho-user" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#Consolas" aria-expanded="false" aria-controls="Consolas">
+                        <img src="imgs/icons/ConsolasSemCirculo.png" width="35px" class="pd-5"> Consolas
+                    </button>
+                </h2>
+                <div id="Consolas" class="accordion-collapse collapse" data-bs-parent="#menu">
+                    <div class="accordion-body">
+                        <ul class="dropdown">
+                            <li><a class="dropdown-item" href="#">Portáteis Windows</a></li>
+                            <li><a class="dropdown-item" href="#">Portáteis Apple</a></li>
+                            <li><a class="dropdown-item" href="#">Todos</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 
@@ -154,7 +257,7 @@ session_start();
                 </a>
 
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/logout.php">Action</a></li>
+                    <li><a class="dropdown-item" href="/CyberTech/logout.php">Logout</a></li>
                     <li><a class="dropdown-item" href="#">Another action</a></li>
                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>

@@ -96,9 +96,15 @@ session_start();
         </a>
       </div>
       <div class="col-lg mt-2">
+        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/Som.png"
+            width="120px">
+          <p>Som</p>
+        </a>
+      </div>
+      <div class="col-lg mt-2">
         <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/Monitores.png"
             width="120px">
-          <p>Imagem e som</p>
+          <p>Imagem</p>
         </a>
       </div>
       <div class="col-lg mt-2">
@@ -107,12 +113,7 @@ session_start();
           <p>Perifericos</p>
         </a>
       </div>
-      <div class="col-lg mt-2">
-        <a class="link-quadrados" href="categorias.php?Categoria='Portáteis'"><img src="imgs/icons/Cabos.png"
-            width="120px">
-          <p>Cabos e Acessórios</p>
-        </a>
-      </div>
+
       
     </div>
   </div>
