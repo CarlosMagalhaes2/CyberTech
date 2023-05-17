@@ -114,7 +114,7 @@ session_start();
         </a>
       </div>
 
-      
+
     </div>
   </div>
 
@@ -131,6 +131,8 @@ session_start();
       <?php
       $destaques = "SELECT * 
       FROM produtos 
+      INNER JOIN carateristicas   
+      ON produtos.ID = carateristicas.IdProduto 
       WHERE Destaque = 1 LIMIT 4";
 
       $resultadoDestaques = $ligacao->query($destaques);
@@ -156,7 +158,44 @@ session_start();
               </a>
               <div class="card-text align-items-middle">
                 <p class="font-12 text-truncate-2">
-                  <?php echo $row["Resumo"] ?>
+                  <?php
+                  if ($row["Processador"] != NULL) {
+                    echo $row["Processador"]; ?> |
+                    <?php
+                  }
+                  if ($row["MemoriaRAM"] != NULL) {
+                    echo $row["MemoriaRAM"]; ?> |
+                    <?php
+                  }
+                  if ($row["PlacaGrafica"] != NULL) {
+                    echo $row["PlacaGrafica"]; ?> |
+                    <?php
+                  }
+                  if ($row["PlacaGrafica2"] != NULL) {
+                    echo $row["PlacaGrafica2"]; ?> |
+                    <?php
+                  }
+                  if ($row["Armazenamento"] != NULL) {
+                    echo $row["Armazenamento"]; ?> |
+                    <?php
+                  }
+                  if ($row["TipoArmazenamento"] != NULL) {
+                    echo $row["TipoArmazenamento"]; ?> |
+                    <?php
+                  }
+                  if ($row["Resolucao"] != NULL) {
+                    echo $row["Resolucao"]; ?> |
+                    <?php
+                  }
+                  if ($row["TamanhoEcra"] != NULL) {
+                    echo $row["TamanhoEcra"]; ?> |
+                    <?php
+                  }
+                  if ($row["SistemaOperativo"] != NULL) {
+                    echo $row["SistemaOperativo"]; ?> |
+                    <?php
+                  }
+                  ?>
                 </p>
               </div>
             </div>
@@ -206,9 +245,10 @@ session_start();
   </div>
   <div class="container">
     <div class="row mt-3 mx-1 align-center">
-      <img src="imgs/banner1.webp" width="1400px" style="  border-radius: 25px; padding: 20px;">
+      <img src="imgs/banner1.webp" class="banners caixa-index">
     </div>
   </div>
+  <!------------------------------------------------- PROMOÇÕES ------------------------------------------------>
   <div class="container mt-3">
     <div class="row mx-1">
       <p class="texto-destaques">
@@ -221,8 +261,11 @@ session_start();
 
       <?php
       $descontos = "SELECT * 
-    FROM produtos
-    WHERE Desconto = 1 LIMIT 4";
+      FROM produtos 
+      INNER JOIN carateristicas   
+      ON produtos.ID = carateristicas.IdProduto 
+      WHERE Desconto = 1 LIMIT 4";
+      
       $resultadoDescontos = $ligacao->query($descontos);
       if ($resultadoDescontos->num_rows > 0) {
         while ($row = $resultadoDescontos->fetch_assoc()) {
@@ -246,7 +289,35 @@ session_start();
               </a>
               <div class="card-text align-items-middle">
                 <p class="font-12 text-truncate-2">
-                  <?php echo $row["Resumo"] ?>
+                <?php
+                  if ($row["Processador"] != NULL) {
+                    echo $row["Processador"];?> | <?php
+                  }
+                  if ($row["MemoriaRAM"] != NULL) {
+                    echo $row["MemoriaRAM"];?> | <?php
+                  }
+                  if ($row["PlacaGrafica"] != NULL) {
+                    echo $row["PlacaGrafica"];?> | <?php
+                  }
+                  if ($row["PlacaGrafica2"] != NULL) {
+                    echo $row["PlacaGrafica2"];?> | <?php
+                  }
+                  if ($row["Armazenamento"] != NULL) {
+                    echo $row["Armazenamento"];?> | <?php
+                  }
+                  if ($row["TipoArmazenamento"] != NULL) {
+                    echo $row["TipoArmazenamento"];?> | <?php
+                  }
+                  if ($row["Resolucao"] != NULL) {
+                    echo $row["Resolucao"];?> | <?php
+                  }
+                  if ($row["TamanhoEcra"] != NULL) {
+                    echo $row["TamanhoEcra"];?> | <?php
+                  }
+                  if ($row["SistemaOperativo"] != NULL) {
+                    echo $row["SistemaOperativo"];?> | <?php
+                  }
+                  ?>
                 </p>
               </div>
             </div>
@@ -295,9 +366,10 @@ session_start();
   </div>
   <div class="container">
     <div class="row mt-3 mx-1 align-center">
-      <img src="imgs/banner2.webp" width="1400px" style="  border-radius: 25px; padding: 20px;">
+      <img src="imgs/banner2.webp" class="banners caixa-index">
     </div>
   </div>
+  <!------------------------------------------------- NOVIDADES ------------------------------------------------>
   <div class="container mt-3">
     <div class="row mx-1">
       <p class="texto-destaques">
@@ -310,9 +382,10 @@ session_start();
 
       <?php
       $novidades = "SELECT * 
-    FROM produtos
-    ORDER BY ID DESC
-    LIMIT 4";
+      FROM produtos 
+      INNER JOIN carateristicas   
+      ON produtos.ID = carateristicas.IdProduto 
+      LIMIT 4";
       $resultadoNovidades = $ligacao->query($novidades);
       if ($resultadoNovidades->num_rows > 0) {
         while ($row = $resultadoNovidades->fetch_assoc()) {
@@ -336,7 +409,35 @@ session_start();
               </a>
               <div class="card-text align-items-middle">
                 <p class="font-12 text-truncate-2">
-                  <?php echo $row["Resumo"] ?>
+                <?php
+                  if ($row["Processador"] != NULL) {
+                    echo $row["Processador"];?> | <?php
+                  }
+                  if ($row["MemoriaRAM"] != NULL) {
+                    echo $row["MemoriaRAM"];?> | <?php
+                  }
+                  if ($row["PlacaGrafica"] != NULL) {
+                    echo $row["PlacaGrafica"];?> | <?php
+                  }
+                  if ($row["PlacaGrafica2"] != NULL) {
+                    echo $row["PlacaGrafica2"];?> | <?php
+                  }
+                  if ($row["Armazenamento"] != NULL) {
+                    echo $row["Armazenamento"];?> | <?php
+                  }
+                  if ($row["TipoArmazenamento"] != NULL) {
+                    echo $row["TipoArmazenamento"];?> | <?php
+                  }
+                  if ($row["Resolucao"] != NULL) {
+                    echo $row["Resolucao"];?> | <?php
+                  }
+                  if ($row["TamanhoEcra"] != NULL) {
+                    echo $row["TamanhoEcra"];?> | <?php
+                  }
+                  if ($row["SistemaOperativo"] != NULL) {
+                    echo $row["SistemaOperativo"];?> | <?php
+                  }
+                  ?>
                 </p>
               </div>
             </div>

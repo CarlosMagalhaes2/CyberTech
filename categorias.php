@@ -29,7 +29,10 @@ include_once("ligacao.php");
 
       <?php
       $Categoria = $_GET['Categoria'];
-      $consulta = "SELECT * FROM produtos
+
+      $consulta = "SELECT * FROM produtos  
+      INNER JOIN carateristicas   
+      ON produtos.ID = carateristicas.IdProduto 
       where Categoria = $Categoria";
 
       $consultaCategoria = "SELECT Categoria FROM produtos 
@@ -80,7 +83,35 @@ include_once("ligacao.php");
               </a>
               <div class="card-text align-items-middle">
                 <p class="font-12 text-truncate-2">
-                  <?php echo $row["Resumo"] ?>
+                  <?php
+                  if ($row["Processador"] != NULL) {
+                    echo $row["Processador"];?> | <?php
+                  }
+                  if ($row["MemoriaRAM"] != NULL) {
+                    echo $row["MemoriaRAM"];?> | <?php
+                  }
+                  if ($row["PlacaGrafica"] != NULL) {
+                    echo $row["PlacaGrafica"];?> | <?php
+                  }
+                  if ($row["PlacaGrafica2"] != NULL) {
+                    echo $row["PlacaGrafica2"];?> | <?php
+                  }
+                  if ($row["Armazenamento"] != NULL) {
+                    echo $row["Armazenamento"];?> | <?php
+                  }
+                  if ($row["TipoArmazenamento"] != NULL) {
+                    echo $row["TipoArmazenamento"];?> | <?php
+                  }
+                  if ($row["Resolucao"] != NULL) {
+                    echo $row["Resolucao"];?> | <?php
+                  }
+                  if ($row["TamanhoEcra"] != NULL) {
+                    echo $row["TamanhoEcra"];?> | <?php
+                  }
+                  if ($row["SistemaOperativo"] != NULL) {
+                    echo $row["SistemaOperativo"];?> | <?php
+                  }
+                  ?>
                 </p>
               </div>
             </div>

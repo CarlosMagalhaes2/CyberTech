@@ -31,11 +31,11 @@ session_start();
                 </div>
                 <div class="row d-sm-flex">
                     <form role="search" action="validarlogin.php" method="post">
-                        <div class="form-group mb-3 text-white">
+                        <div class="form-group mb-3 ">
                             <label for="exampleInputEmail1">Email address</label>
                             <input type="email" class="form-control mb-3" id="exampleInputEmail1" name="email" placeholder="Enter email" required class="form-control">
                         </div>
-                        <div class="form-group text-white">
+                        <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
                             <input type="password" class="form-control" id="exampleInputPassword1" name="passwd" placeholder="Password" required class="form-control">
                             <small id="emailHelp" class="form-text text-muted mb-3">Nunca partilhe a sua password com ninguém.</small>
@@ -61,14 +61,14 @@ session_start();
                         </div>
 
 
-                        <button type="submit" class="btn text-white col-12" style="background-color: #00A0B8;">Confirmar</button>
+                        <button type="submit" class="btn col-12 text-white" style="background-color: #00A0B8;">Confirmar</button>
                     </form>
                 </div>
 
 
             </div>
             <div class="col-2 d-flex justify-content-center text-center mt-5">
-                <img src="imgs/barraLogin.png" width="6px" height="350px">
+                <img src="imgs/barraLogin.png" width="10px" height="350px" style="border-radius:10px">
             </div>
             <div class="col-4">
                 <div class="row">
@@ -76,24 +76,24 @@ session_start();
                 </div>
                 <div class="row d-sm-flex">
                     <form role="search" action="efetuaregisto.php" method="post">
-                        <div class="form-group mb-3 text-white">
+                        <div class="form-group mb-3">
                             <label for="exampleFormControlTextarea1">Nome</label>
                             <input class="form-control" id="exampleFormControlTextarea1" name="Nome" rows="1" placeholder="Nome" required class="form-control"></textarea>
                         </div>
-                        <div class="form-group text-white">
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
                             <input type="email" class="form-control mb-3" id="exampleInputEmail1" name="Email" aria-describedby="emailHelp" placeholder="Email" required class="form-control">
                         </div>
-                        <div class="form-group text-white">
+                        <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
                             <input type="password" class="form-control" id="exampleInputPassword1" name="Password" placeholder="Password" required class="form-control">
                             <small id="emailHelp" class="form-text text-muted mb-3">Nunca partilhe a sua password com ninguém.</small>
                         </div>
                         <div class="form-check mt-3">
                             <input type="checkbox" class="form-check-input mb-3" id="exampleCheck1" required class="form-check-input">
-                            <label class="form-check-label mb-3" for="exampleCheck1" style="color:#E7F6F2; font-size:13px">Li e aceito os Termos e Condições e confirmo que tenho mais de 16 anos de idade.</label>
+                            <label class="form-check-label mb-3" for="exampleCheck1" style=" font-size:13px">Li e aceito os Termos e Condições e confirmo que tenho mais de 16 anos de idade.</label>
                         </div>
-                        <button type="submit" class="btn text-white col-12" style="background-color: #00A0B8">Confirmar</button>
+                        <button type="submit" class="btn col-12 text-white" style="background-color: #00A0B8">Confirmar</button>
                     </form>
                 </div>
                 <div class="col-1"></div>
