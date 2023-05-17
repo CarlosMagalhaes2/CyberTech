@@ -10,46 +10,70 @@ session_start();
             data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Portáteis
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <hr class="dropdown-divider">
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </li>
-            <div class="btn-group dropend">
-                <button type="button" class="btn btn-secondary">
-                    Split dropend
-                </button>
-                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="visually-hidden">Toggle Dropend</span>
-                </button>
-
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <hr class="dropdown-divider">
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+        <div class="accordion accordion-flush" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Accordion Item #1
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="dropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-
-        </ul>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Accordion Item #2
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the
+                        collapse
+                        plugin adds the appropriate classes that we use to style each element. These classes control the
+                        overall
+                        appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
+                        with custom
+                        CSS or overriding our default variables. It's also worth noting that just about any HTML can go
+                        within the
+                        <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Accordion Item #3
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
+                        collapse
+                        plugin
+                        adds the appropriate classes that we use to style each element. These classes control the
+                        overall
+                        appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
+                        with custom
+                        CSS or overriding our default variables. It's also worth noting that just about any HTML can go
+                        within the
+                        <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
+</div>
 
 
 <nav class="navbar navbar-expand-lg">
@@ -106,34 +130,34 @@ session_start();
             </li>
             <!-- User -->
             <li class="nav-item dropdown">
-                    <a class="btn btn-carrinho tamanho-user" href="#" role="button" href="/CyberTech/login.php"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                            Ola,
-                            <?php
-                            if (isset($_SESSION['userEmail']) or (isset($_SESSION['userPasswd']))) {
+                <a class="btn btn-carrinho tamanho-user" href="#" role="button" href="/CyberTech/login.php"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Ola,
+                    <?php
+                    if (isset($_SESSION['userEmail']) or (isset($_SESSION['userPasswd']))) {
 
-                                $utilizador = $_SESSION['userEmail'];
-                                $passwd = $_SESSION['userPasswd'];
+                        $utilizador = $_SESSION['userEmail'];
+                        $passwd = $_SESSION['userPasswd'];
 
-                                $consultaUser = "SELECT * FROM utilizadores WHERE Email = '$utilizador' and Passwd = '$passwd' LIMIT 1";
-                                $resultadoUser = $ligacao->query($consultaUser);
+                        $consultaUser = "SELECT * FROM utilizadores WHERE Email = '$utilizador' and Passwd = '$passwd' LIMIT 1";
+                        $resultadoUser = $ligacao->query($consultaUser);
 
 
-                                if ($resultadoUser->num_rows > 0) {
-                                    while ($row = $resultadoUser->fetch_assoc()) {
-                                        echo $row["Nome"];
-                                    }
-                                }
+                        if ($resultadoUser->num_rows > 0) {
+                            while ($row = $resultadoUser->fetch_assoc()) {
+                                echo $row["Nome"];
                             }
-                            ?>
+                        }
+                    }
+                    ?>
 
-                        </a>
+                </a>
 
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/logout.php">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/logout.php">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
 
             </li>
         </div>

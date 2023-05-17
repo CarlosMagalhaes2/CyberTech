@@ -570,8 +570,9 @@ tr {
   }
 
 .accordion-body {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
   }
 
 .offcanvas-body{
@@ -587,6 +588,13 @@ tr {
     margin-bottom: 0;
 }
 
+.dropdown-item{
+    padding: 5px;
+    width: 100%;
+}
+
 .dropdown-item:hover{
     background-color: #133a3a;
+    color: #E7F6F2;
 }
+
