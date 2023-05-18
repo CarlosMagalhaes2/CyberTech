@@ -7,7 +7,7 @@
                     <a class="btn btn-produtos" href="/CyberTech/inserir_produto.php" role="button">Inserir Produto</a>
                 </li>
             </ul>
-            <a class="navbar-brand" href="https://localhost/Cybertech">
+            <a class="navbar-brand" href="/Cybertech">
                 <img src="imgs/IconLogo.png" alt="logo" width="80" alt=""/>
             </a>
 

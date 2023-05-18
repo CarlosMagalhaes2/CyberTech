@@ -20,6 +20,19 @@ if (!isset($_SESSION['userEmail']) or (!isset($_SESSION['userPasswd']))) {
 
     <link rel="shortcut icon" href="imgs/faviconLogo.ico" />
 
+    <script src="tinymce/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#Descricao',
+            language: 'pt_BR',
+            menubar: false,
+            branding: false,
+            toolbar: 'undo redo | bold italic underline strikethrough | fontsize | ltr rtl',
+            toolbar_sticky: true,
+
+        });
+    </script>
+
 </head>
 
 <body>

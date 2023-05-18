@@ -43,10 +43,10 @@ session_start();
     if ($resultado->num_rows > 0) {
         while ($row = $resultado->fetch_assoc()) {
     ?>
-            <div class="container text-white bg-azul my-3 mr-1">
+            <div class="container  bg-azul my-3 mr-1">
                 <div class="row">
                     <div class="col-6 my-3 text-center">
-                        <img src="imgs/produtos/<?php echo $row["ImagemPrincipal"] ?>" width="90%" class="border_10px">
+                        <img src="imgs/produtos/<?php echo $row["ImagemPrincipal"] ?>" width="90%" class="caixa-index border_10px">
                     </div>
                     <div class="col-6">
                         <div class="row">
@@ -141,45 +141,45 @@ session_start();
                                 if ($row["Processador"] != NULL) {
                                 ?>
                                     <td>
-                                        <p class="text_white weight_600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cpu" viewBox="0 0 16 16">
+                                        <p class=" weight_600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cpu" viewBox="0 0 16 16">
                                                 <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0zm-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3h-7zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
                                             </svg>
                                     </td>
-                                    <td><span class="text_white"><?php echo $row["Processador"] ?></span></td>
+                                    <td><span class=""><?php echo $row["Processador"] ?></span></td>
                                 <?php
                                 }
                                 if ($row["MemoriaRAM"] != NULL) {
                                 ?>
                                     <td>
-                                        <p class="text_white weight_600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-memory" viewBox="0 0 16 16">
+                                        <p class=" weight_600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-memory" viewBox="0 0 16 16">
                                                 <path d="M1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.586a1 1 0 0 0 .707-.293l.353-.353a.5.5 0 0 1 .708 0l.353.353a1 1 0 0 0 .707.293H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H1Zm.5 1h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5Zm5 0h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5Zm4.5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4ZM2 10v2H1v-2h1Zm2 0v2H3v-2h1Zm2 0v2H5v-2h1Zm3 0v2H8v-2h1Zm2 0v2h-1v-2h1Zm2 0v2h-1v-2h1Zm2 0v2h-1v-2h1Z" />
                                             </svg>
                                     </td>
-                                    <td><span class="text_white"><?php echo $row["MemoriaRAM"] ?></span></td>
+                                    <td><span class=""><?php echo $row["MemoriaRAM"] ?></span></td>
                                 <?php
                                 }
                                 if ($row["PlacaGrafica"] != NULL) {
                                 ?>
                                     <td>
-                                        <p class="text_white weight_600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-gpu-card" viewBox="0 0 16 16">
+                                        <p class=" weight_600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-gpu-card" viewBox="0 0 16 16">
                                                 <path d="M4 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm7.5-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" />
                                                 <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .5.5V4h13.5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5H2v2.5a.5.5 0 0 1-1 0V2H.5a.5.5 0 0 1-.5-.5Zm5.5 4a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM9 8a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0Z" />
                                                 <path d="M3 12.5h3.5v1a.5.5 0 0 1-.5.5H3.5a.5.5 0 0 1-.5-.5v-1Zm4 1v-1h4v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5Z" />
                                             </svg>
                                     </td>
-                                    <td><span class="text_white"><?php echo $row["PlacaGrafica"] ?></span></td>
+                                    <td><span class=""><?php echo $row["PlacaGrafica"] ?></span></td>
 
                                 <?php
                                 }
                                 if ($row["Armazenamento"] != NULL) {
                                 ?>
                                     <td>
-                                        <p class="text_white weight_600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-hdd" viewBox="0 0 16 16">
+                                        <p class=" weight_600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-hdd" viewBox="0 0 16 16">
                                                 <path d="M4.5 11a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM3 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
                                                 <path d="M16 11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V9.51c0-.418.105-.83.305-1.197l2.472-4.531A1.5 1.5 0 0 1 4.094 3h7.812a1.5 1.5 0 0 1 1.317.782l2.472 4.53c.2.368.305.78.305 1.198V11zM3.655 4.26 1.592 8.043C1.724 8.014 1.86 8 2 8h12c.14 0 .276.014.408.042L12.345 4.26a.5.5 0 0 0-.439-.26H4.094a.5.5 0 0 0-.44.26zM1 10v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1z" />
                                             </svg>
                                     </td>
-                                    <td><span class="text_white"><?php echo $row["Armazenamento"] ?> <?php if ($row["TipoArmazenamento"] != NULL) {
+                                    <td><span class=""><?php echo $row["Armazenamento"] ?> <?php if ($row["TipoArmazenamento"] != NULL) {
                                                                                                             echo $row["TipoArmazenamento"];
                                                                                                         }  ?></span></td>
                                 <?php
@@ -187,12 +187,12 @@ session_start();
                                 if ($row["Resolucao"] != NULL) {
                                 ?>
                                     <td>
-                                        <p class="text_white weight_600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-aspect-ratio" viewBox="0 0 16 16">
+                                        <p class=" weight_600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-aspect-ratio" viewBox="0 0 16 16">
                                                 <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h13A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5v-9zM1.5 3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z" />
                                                 <path d="M2 4.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H3v2.5a.5.5 0 0 1-1 0v-3zm12 7a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H13V8.5a.5.5 0 0 1 1 0v3z" />
                                             </svg>
                                     </td>
-                                    <td><span class="text_white"><?php echo $row["Resolucao"] ?> <?php if ($row["TamanhoEcra"] != NULL) {
+                                    <td><span class=""><?php echo $row["Resolucao"] ?> <?php if ($row["TamanhoEcra"] != NULL) {
                                                                                                         echo $row["TamanhoEcra"];
                                                                                                     }  ?></span></td>
                                 <?php
@@ -200,12 +200,12 @@ session_start();
                                 if ($row["SistemaOperativo"] != NULL) {
                                 ?>
                                     <td>
-                                        <p class="text_white weight_600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                                        <p class=" weight_600"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
                                                 <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
                                                 <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
                                             </svg>
                                     </td>
-                                    <td><span class="text_white"><?php echo $row["SistemaOperativo"] ?></span></td>
+                                    <td><span class=""><?php echo $row["SistemaOperativo"] ?></span></td>
 
                                 <?php
                                 }
@@ -220,11 +220,12 @@ session_start();
 
             </div>
 
-            <div class="container bg-azul text-white">
+            <div class="container bg-azul ">
                 <div class="row">
-                    <p class="text-white bold texto-descricao font-22">Descrição</p>
+                    <p class="bold texto-descricao font-22">Descrição</p>
                 </div>
-                <p class="text-white"><?php echo $row["Descricao"] ?></p>
+
+                <p><?php echo $row["Descricao"] ?></p>
 
             </div>
     <?php
