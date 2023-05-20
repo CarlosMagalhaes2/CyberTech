@@ -15,6 +15,15 @@ $ValorDesconto = $_POST['ValorDesconto'];
 $Destaque = $_POST['Destaque'];
 $Descricao = $_POST['Descricao'];
 $ImagemPrincipal = $_POST['ImagemPrincipal'];
+$Processador = $_POST['Processador'];
+$MemoriaRAM = $_POST['MemoriaRAM'];
+$PlacaGrafica = $_POST['PlacaGrafica'];
+$PlacaGrafica2 = $_POST['PlacaGrafica2'];
+$Armazenamento = $_POST['Armazenamento'];
+$TipoArmazenamento = $_POST['TipoArmazenamento'];
+$Resolucao = $_POST['Resolucao'];
+$TamanhoEcra = $_POST['TamanhoEcra'];
+$SistemaOperativo = $_POST['SistemaOperativo'];
 
 
 
