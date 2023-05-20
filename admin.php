@@ -51,7 +51,7 @@ if (isset($_SESSION['userEmail']) or (isset($_SESSION['userPasswd']))) {
     ?>
     <div class="container mt-5 mb-5">
         <div class="row">
-            <table class="table-dark table-bordered border-dark ">
+            <table class="table table-bordered border ">
                 <thead>
                     <tr>
                         <th scope="col"></th>

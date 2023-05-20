@@ -1,20 +1,16 @@
 <?php
 include_once("ligacao.php");
 
-
-
 $ID = $_POST['ID'];
 $Nome = $_POST['Nome'];
 $Fabricante = $_POST['Fabricante'];
 $Preco = $_POST['Preco'];
-$Categoria = $_POST['Categoria'];
 $Stock = $_POST['Stock'];
-$ResumoCategorias = $_POST['ResumoCategorias'];
 $Desconto = $_POST['Desconto'];
 $ValorDesconto = $_POST['ValorDesconto'];
 $Destaque = $_POST['Destaque'];
 $Descricao = $_POST['Descricao'];
-$ImagemPrincipal = $_POST['ImagemPrincipal'];
+// $ImagemPrincipal = $_POST['ImagemPrincipal'];
 $Processador = $_POST['Processador'];
 $MemoriaRAM = $_POST['MemoriaRAM'];
 $PlacaGrafica = $_POST['PlacaGrafica'];
@@ -27,24 +23,19 @@ $SistemaOperativo = $_POST['SistemaOperativo'];
 
 
 
-$resultado = $ligacao->query("SELECT * FROM produtos WHERE ID = $ID");
-if ($resultado->num_rows > 0) {
-    while ($row = $resultado->fetch_assoc()) {
-
-if ($ImagemPrincipal == NULL){
-    $ImagemPrincipal = $row['ImagemPrincipal'];
+if($ValorDesconto === null or $ValorDesconto === 0){
+    $ValorDesconto = null;
 }
 
 
-}}
+$atualizar = "UPDATE produtos SET Nome='$Nome', Fabricante='$Fabricante', Preco='$Preco', Stock='$Stock', Desconto='$Desconto', 
+ValorDesconto='$ValorDesconto', Destaque='$Destaque', Descricao='$Descricao' WHERE ID=$ID";
 
+$atualizarCarateristicas = "UPDATE carateristicas SET Processador='$Processador', MemoriaRAM='$MemoriaRAM', PlacaGrafica='$PlacaGrafica', 
+PlacaGrafica2='$PlacaGrafica2', Armazenamento='$Armazenamento', TipoArmazenamento='$TipoArmazenamento', Resolucao='$Resolucao', 
+TamanhoEcra='$TamanhoEcra', SistemaOperativo='$SistemaOperativo' WHERE IdProduto=$ID";
 
-
-$atualizar = "UPDATE produtos SET Nome='$Nome', Fabricante='$Fabricante', Preco='$Preco', 
-Categoria='$Categoria', Stock='$Stock', ResumoCategorias='$ResumoCategorias', Desconto='$Desconto', 
-ValorDesconto='$ValorDesconto', Destaque='$Destaque', Descricao='$Descricao', ImagemPrincipal='$ImagemPrincipal' WHERE ID=$ID";
-
-if ($ligacao->query($atualizar) === TRUE) {
+if ($ligacao->query($atualizar) === TRUE and $ligacao->query($atualizarCarateristicas) === TRUE) {
     header("Location: admin.php");
     die();
 } else {

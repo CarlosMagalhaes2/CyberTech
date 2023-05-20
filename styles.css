@@ -732,3 +732,21 @@ tr {
     padding-bottom: 0px;
     padding-right: 0px;
 }
+
+.btn-editar {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #00A0B8;
+    --bs-btn-border-color: #00A0B8;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #00606e;
+    --bs-btn-hover-border-color: #00A0B8;
+    --bs-btn-focus-shadow-rgb: 225,83,97;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #00A0B8;
+    --bs-btn-active-border-color: #00A0B8;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #00A0B8;
+    --bs-btn-disabled-border-color: #00A0B8;
+    margin-top: -3px;
+}

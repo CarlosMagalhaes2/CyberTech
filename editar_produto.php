@@ -65,14 +65,16 @@ if (!isset($_SESSION['userEmail']) or (!isset($_SESSION['userPasswd']))) {
                             <?php echo $row["ID"] ?>
                         </span> </span>
 
-                        <?php
+                        <?php  
                     }
                 }
                 ?>
+                
                 <?php
                 if ($resultado->num_rows > 0) {
                     while ($row = $resultado->fetch_assoc()) {
                         ?>
+                        <input type="text" class="form-control mb-4" style="display:none" name="ID" value="<?php echo $row["ID"] ?>" readonly>
                         <div class="container bg-azul my-3 mr-1">
                             <div class="row">
 
@@ -91,29 +93,29 @@ if (!isset($_SESSION['userEmail']) or (!isset($_SESSION['userPasswd']))) {
                                     <div class="row">
                                         <div class="col-3">
                                             <label class="label">Preço</label>
-                                            <input type="number" min="1" step="any" class="form-preco mb-4" name="nome"
+                                            <input type="number" min="1" step="any" class="form-preco mb-4" name="Preco"
                                                 value="<?php echo $row["Preco"] ?>">
                                         </div>
                                         <div class="col-3">
                                             <fieldset id="desconto">
                                                 <p style="margin:0">Em desconto?</p>
-                                                <input type="radio" id="html" name="desconto" value="1" required>
+                                                <input type="radio" id="html" name="Desconto" value="1" required>
                                                 <label for="html">Sim</label><br>
-                                                <input type="radio" id="css" name="desconto" value="0">
+                                                <input type="radio" id="css" name="Desconto" value="0">
                                                 <label for="css">Não</label><br>
                                             </fieldset>
                                         </div>
                                         <div class="col-3">
                                             <label class="label">Valor do Desconto</label>
-                                            <input type="number" min="1" step="any" class="form-desconto mb-4"
+                                            <input type="number" min="0" step="any" class="form-desconto mb-4"
                                                 name="ValorDesconto" value="<?php echo $row["ValorDesconto"] ?>">
                                         </div>
                                         <div class="col-3">
-                                            <fieldset id="destaque">
+                                            <fieldset id="Destaque">
                                                 <p style="margin:0">Destacar?</p>
-                                                <input type="radio" id="html" name="destaque" value="1" required>
+                                                <input type="radio" id="html" name="Destaque" value="1" required>
                                                 <label for="html">Sim</label><br>
-                                                <input type="radio" id="css" name="destaque" value="0">
+                                                <input type="radio" id="css" name="Destaque" value="0">
                                                 <label for="css">Não</label><br>
                                             </fieldset>
                                         </div>
