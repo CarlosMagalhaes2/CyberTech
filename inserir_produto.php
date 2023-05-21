@@ -34,12 +34,12 @@ if (isset($_POST['submitform'])) {
 Categoria='$Categoria', Stock='$Stock', ResumoCategorias='$ResumoCategorias', Desconto='$Desconto', 
 ValorDesconto='$ValorDesconto', Destaque='$Destaque', Descricao='$Descricao', ImagemPrincipal='$ImagemPrincipal'";
 
-if($ligacao->query($inserir)===TRUE){
-    header("Location: admin.php");
-    die();
-}else{
-    echo "Erro: " . $inserir . "<br>" , $ligacao->$error;
-}
+    if ($ligacao->query($inserir) === TRUE) {
+        header("Location: admin.php");
+        die();
+    } else {
+        echo "Erro: " . $inserir . "<br>", $ligacao->$error;
+    }
 }
 ?>
 
@@ -51,7 +51,8 @@ if($ligacao->query($inserir)===TRUE){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberTech</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 
     <link rel="shortcut icon" href="imgs/faviconLogo.ico" />
@@ -78,72 +79,224 @@ if($ligacao->query($inserir)===TRUE){
 
     ?>
     <div class="container mt-5 mb-5">
-        <div class="row">
+        <form action="validar_editar_produto.php" method="POST">
+            <div class="row">
 
+                <div class="container bg-azul my-3 mr-1">
+                    <div class="row">
 
-            <span class="texto-destaques ml-5"><img src="imgs/barra.webp" height="30px" class="barra"> Inserir Produto</span>
-
-            <div class="container text-white mb-5 mt-5">
-                <div class="row">
-                    <div class="col-12 mb-5">
-                        <form action="#" method="POST" enctype="multipart/form-data">
-                            <div class="form-group">
-
-                                <label>Nome</label>
-                                <input type="text" class="form-control mb-4" name="Nome" value="">
-
-                                <label>Fabricante</label>
-                                <input type="text" class="form-control mb-4" name="Fabricante" value="">
-
-                                <label>Preco</label>
-                                <input type="text" class="form-control mb-4" name="Preco" value="">
-
-                                <label>Categoria</label>
-                                <input type="text" class="form-control mb-4" name="Categoria" value="">
-
-                                <label>Stock</label>
-                                <input type="text" class="form-control mb-4" name="Stock" value="">
-
-                                <label>Resumo das Carateristicas</label>
-                                <textarea class="form-control  mb-4" rows="2" name="ResumoCategorias"> </textarea>
-
-                                <label>Desconto <i>[0 Não || 1 Sim]</i></label>
-                                <input type="text" class="form-control mb-4" name="Desconto" value="">
-
-                                <label>Valor do Desconto</label>
-                                <input class="form-control  mb-4" name="ValorDesconto" value="">
-
-                                <label>Destaque <i>[0 Não || 1 Sim]</i></label>
-                                <input type="text" class="form-control mb-4" name="Destaque" value="">
-
-                                <label>Descrição</label>
-                                <textarea class="form-control  mb-4" rows="20" id="Descricao" name="Descricao"></textarea>
-
-
-                                <div class="form-group">
-                                    <label>Imagem Principal</label>
-                                    <P>
-                                        <input type="file" name="uploadfile">
+                        <div class="col-6 my-3 text-center">
+                            <img src="imgs/produtos/huaweyMateBookD15BohrD-WD19A_1.jpg" width="90%"
+                                class="caixa-index border_10px">
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-12 mt-2">
+                                    <label>Nome</label>
+                                    <input type="text" class="form-nome mb-2" name="Nome" value="Nome ...">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label class="label">Preço</label>
+                                    <input type="number" min="1" step="any" class="form-preco mb-4" name="Preco"
+                                        value="">
+                                </div>
+                                <div class="col-3">
+                                    <fieldset id="desconto">
+                                        <p style="margin:0">Em desconto?</p>
+                                        <input type="radio" id="html" name="Desconto" value="1" required>
+                                        <label for="html">Sim</label><br>
+                                        <input type="radio" id="css" name="Desconto" value="0">
+                                        <label for="css">Não</label><br>
+                                    </fieldset>
+                                </div>
+                                <div class="col-3">
+                                    <label class="label">Valor do Desconto</label>
+                                    <input type="number" min="0" step="any" class="form-desconto mb-4"
+                                        name="ValorDesconto" value="">
+                                </div>
+                                <div class="col-3">
+                                    <fieldset id="Destaque">
+                                        <p style="margin:0">Destacar?</p>
+                                        <input type="radio" id="html" name="Destaque" value="1" required>
+                                        <label for="html">Sim</label><br>
+                                        <input type="radio" id="css" name="Destaque" value="0">
+                                        <label for="css">Não</label><br>
+                                    </fieldset>
                                 </div>
 
-                                <button type="reset" class="btn btn-primary">Cancelar</button>
-                                <button type="submit" class="btn btn-primary" name="submitform">Gravar</button>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label class="label">Stock</label>
+                                    <input type="number" min="0" class="form-resto" name="Stock" value="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 my-3">
+                                    <label>Fabricante</label>
+                                    <input type="text" class="form-resto" name="Fabricante" value="Fabricante ...">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label>Categoria</label>
+                                    <div class="select">
+                                        <select id="Categoria">
+                                            <option selected>Categoria ...</option>
+                                            <option value="Portáteis">Portáteis</option>
+                                            <option value="Desktops">Desktops</option>
+                                            <option value="Componentes">Componentes</option>
+                                            <option value="Smartphones">Smartphones</option>
+                                            <option value="Som">Som</option>
+                                            <option value="Imagem">Imagem</option>
+                                            <option value="Periféricos">Periféricos</option>
+                                            <option value="CabosAcessórios">Cabos e Acessórios</option>
+                                            <option value="Consolas">Consolas</option>
+                                        </select>
+                                        <div class="select_arrow">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label>Subcategoria</label>
+                                    <div class="select">
+                                        <select id="SubCategoria">
+                                            <option selected>Subcategoria ...</option>
+                                            <optgroup label="Portáteis">
+                                                <option value="Portáteis">Portáteis Windows</option>
+                                                <option value="Desktops">Portáteis Apple</option>
+                                            </optgroup>
+                                            <optgroup label="Desktops">
+                                                <option value="Desktops Gaming">Desktops Gaming</option>
+                                                <option value="Workstations">Workstations</option>
+                                                <option value="All-in-One">All-in-One</option>
+                                            </optgroup>
+                                            <optgroup label="Desktops">
+                                                <option value="Desktops Gaming">Desktops Gaming</option>
+                                                <option value="Workstations">Workstations</option>
+                                                <option value="All-in-One">All-in-One</option>
+                                            </optgroup>
+                                        </select>
+                                        <div class="select_arrow">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="accordion-carateristicas" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne">
+                                                <p class="bold" style="margin-bottom:3px;">Carateristicas</p>
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse show"
+                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <!-----------------------------------------ACCORDION BODY ---------------------------------->
+                                            <div class="accordion-body">
+                                                <div class="row">
+                                                    <div class="col-12 mt-2">
+                                                        <label>Processador</label>
+                                                        <input type="text" class="form-resto" name="Processador"
+                                                            value="">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 mt-2">
+                                                        <label>Memoria RAM</label>
+                                                        <input type="text" class="form-resto" name="MemoriaRAM"
+                                                            value="">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 mt-2">
+                                                        <label>Placa Grafica</label>
+                                                        <input type="text" class="form-resto" name="PlacaGrafica"
+                                                            value="">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 mt-2">
+                                                        <label>Placa Grafica Integrada</label>
+                                                        <input type="text" class="form-resto" name="PlacaGrafica2"
+                                                            value="">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 mt-2">
+                                                        <label>Armazenamento</label>
+                                                        <input type="text" class="form-resto" name="Armazenamento"
+                                                            value="">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 mt-2">
+                                                        <label>Tipo de Armazenamento</label>
+                                                        <input type="text" class="form-resto" name="TipoArmazenamento"
+                                                            value="">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 mt-2">
+                                                        <label>Resolucao</label>
+                                                        <input type="text" class="form-resto" name="Resolucao" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 mt-2">
+                                                        <label>Tamanho do Ecra</label>
+                                                        <input type="text" class="form-resto" name="TamanhoEcra"
+                                                            value="">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 mt-2">
+                                                        <label>Sistema Operativo</label>
+                                                        <input type="text" class="form-resto" name="SistemaOperativo"
+                                                            value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             </div>
 
-
-                        </form>
-
+                        </div>
                     </div>
+
                 </div>
 
+                <div class="container bg-azul">
+                    <div class="row">
+                        <p class="bold texto-descricao font-22">Descrição</p>
+                    </div>
+                    <p>
+                        <textarea class="form-control  mb-4" rows="20" id="Descricao" name="Descricao"></textarea>
+                    </p>
+
+                    <div class="row">
+                        <div class="col-10"></div>
+                        <div class="col"><button type="reset" class="btn btn-primary">Cancelar</button></div>
+                        <div class="col"><button type="submit" class="btn btn-primary">Gravar</button></div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <?php include 'footer.php'; ?>
 
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
