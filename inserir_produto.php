@@ -22,16 +22,13 @@ if (isset($_POST['submitform'])) {
     $Nome = $_POST['Nome'];
     $Fabricante = $_POST['Fabricante'];
     $Preco = $_POST['Preco'];
-    $Categoria = $_POST['Categoria'];
     $Stock = $_POST['Stock'];
-    $ResumoCategorias = $_POST['ResumoCategorias'];
     $Desconto = $_POST['Desconto'];
     $ValorDesconto = $_POST['ValorDesconto'];
     $Destaque = $_POST['Destaque'];
     $Descricao = $_POST['Descricao'];
 
-    $inserir = "INSERT INTO produtos SET Nome='$Nome', Fabricante='$Fabricante', Preco='$Preco', 
-Categoria='$Categoria', Stock='$Stock', ResumoCategorias='$ResumoCategorias', Desconto='$Desconto', 
+    $inserir = "INSERT INTO produtos SET Nome='$Nome', Fabricante='$Fabricante', Preco='$Preco', Stock='$Stock', Desconto='$Desconto', 
 ValorDesconto='$ValorDesconto', Destaque='$Destaque', Descricao='$Descricao', ImagemPrincipal='$ImagemPrincipal'";
 
     if ($ligacao->query($inserir) === TRUE) {
@@ -58,6 +55,9 @@ ValorDesconto='$ValorDesconto', Destaque='$Destaque', Descricao='$Descricao', Im
     <link rel="shortcut icon" href="imgs/faviconLogo.ico" />
 
     <script src="tinymce/tinymce.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <script>
         tinymce.init({
             selector: '#Descricao',
@@ -79,15 +79,33 @@ ValorDesconto='$ValorDesconto', Destaque='$Destaque', Descricao='$Descricao', Im
 
     ?>
     <div class="container mt-5 mb-5">
-        <form action="validar_editar_produto.php" method="POST">
+        <form action="#" method="POST" enctype="multipart/form-data">
             <div class="row">
 
                 <div class="container bg-azul my-3 mr-1">
                     <div class="row">
 
                         <div class="col-6 my-3 text-center">
-                            <img src="imgs/produtos/huaweyMateBookD15BohrD-WD19A_1.jpg" width="90%"
-                                class="caixa-index border_10px">
+                            <div id="preview"></div>
+                            <label>Profile Photo</label>
+                            <br>
+                            <input type="file" name="ImagemPrincipal" id="ImagemPrincipal" onchange="previewImagem(this)"
+                                accept="image/*">
+
+                            <script>
+                                function previewImagem(input1) {
+                                    $('.PreviewImg').remove();
+                                    if (input1.files && input1.files[0]) {
+                                        $(input1.files).each(function () {
+                                            var reader = new FileReader();
+                                            reader.readAsDataURL(this);
+                                            reader.onload = function (e) {
+                                                $("#preview").append("<img class='PreviewImg caixa-index border_10px' src='" + e.target.result + "' style='width: 90%; margin-bottom: 15px'>");
+                                            }
+                                        });
+                                    }
+                                }
+                            </script>
                         </div>
                         <div class="col-6">
                             <div class="row">
