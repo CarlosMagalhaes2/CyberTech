@@ -5,6 +5,60 @@ session_start();
 if (!isset($_SESSION['userEmail']) or (!isset($_SESSION['userPasswd']))) {
     header("Location: login.php");
 }
+
+if (isset($_POST['submitform'])) {
+
+    $ID = $_POST['ID'];
+    $Nome = $_POST['Nome'];
+    $Fabricante = $_POST['Fabricante'];
+    $Preco = $_POST['Preco'];
+    $Stock = $_POST['Stock'];
+    $Desconto = $_POST['Desconto'];
+    $ValorDesconto = $_POST['ValorDesconto'];
+    $Destaque = $_POST['Destaque'];
+    $Descricao = $_POST['Descricao'];
+    $Processador = $_POST['Processador'];
+    $MemoriaRAM = $_POST['MemoriaRAM'];
+    $PlacaGrafica = $_POST['PlacaGrafica'];
+    $PlacaGrafica2 = $_POST['PlacaGrafica2'];
+    $Armazenamento = $_POST['Armazenamento'];
+    $TipoArmazenamento = $_POST['TipoArmazenamento'];
+    $Resolucao = $_POST['Resolucao'];
+    $TamanhoEcra = $_POST['TamanhoEcra'];
+    $SistemaOperativo = $_POST['SistemaOperativo'];
+    $Imagem = $_POST['ImagemAntiga'];
+
+    if ($ValorDesconto === null or $ValorDesconto === 0) {
+        $ValorDesconto = null;
+    }
+
+    $pasta = "imgs/produtos/";
+    $ImagemPrincipal = $_FILES['uploadfile']['name'];
+    $temp_name = $_FILES['uploadfile']['tmp_name'];
+
+    if ($ImagemPrincipal != "") {
+        if (file_exists($pasta . $ImagemPrincipal)) {
+            $ImagemPrincipal = time() . '_' . $ImagemPrincipal;
+        }
+        $fpasta = $pasta . $ImagemPrincipal;
+        move_uploaded_file($temp_name, $fpasta);
+    } else {
+        // Mantém a ImagemPrincipal existente se nenhuma nova ImagemPrincipal for enviada
+        $ImagemPrincipal = $Imagem;
+    }
+
+    $atualizar = "UPDATE produtos SET Nome='$Nome', ImagemPrincipal='$ImagemPrincipal', Fabricante='$Fabricante', Preco='$Preco', Stock='$Stock', Desconto='$Desconto', ValorDesconto='$ValorDesconto', Destaque='$Destaque', Descricao='$Descricao' WHERE ID=$ID";
+
+    if ($ligacao->query($atualizar) === TRUE) {
+        $atualizarCarateristicas = "UPDATE carateristicas SET Processador='$Processador', MemoriaRAM='$MemoriaRAM', PlacaGrafica='$PlacaGrafica', PlacaGrafica2='$PlacaGrafica2', Armazenamento='$Armazenamento', TipoArmazenamento='$TipoArmazenamento', Resolucao='$Resolucao', TamanhoEcra='$TamanhoEcra', SistemaOperativo='$SistemaOperativo' WHERE IdProduto=$ID";
+        if ($ligacao->query($atualizarCarateristicas) === TRUE) {
+            header("Location: detalhes.php?ID=$ID");
+            die();
+        } else {
+            echo "Erro: " . $atualizar . "<br>" . $ligacao->error;
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -49,13 +103,12 @@ if (!isset($_SESSION['userEmail']) or (!isset($_SESSION['userPasswd']))) {
 
     ?>
     <div class="container mt-5 mb-5">
-        <form action="validar_editar_produto.php" method="POST">
+        <form action="#" method="POST" enctype="multipart/form-data">
             <div class="row">
 
                 <?php
                 $consultaCategoria = "SELECT * FROM produtos WHERE ID = $ID";
                 $resultadoCategoria = $ligacao->query($consultaCategoria);
-
 
                 if ($resultadoCategoria->num_rows > 0) {
                     while ($row = $resultadoCategoria->fetch_assoc()) {
@@ -65,23 +118,46 @@ if (!isset($_SESSION['userEmail']) or (!isset($_SESSION['userPasswd']))) {
                             <?php echo $row["ID"] ?>
                         </span> </span>
 
-                        <?php  
+                        <?php
                     }
                 }
                 ?>
-                
+
                 <?php
                 if ($resultado->num_rows > 0) {
                     while ($row = $resultado->fetch_assoc()) {
                         ?>
-                        <input type="text" class="form-control mb-4" style="display:none" name="ID" value="<?php echo $row["ID"] ?>" readonly>
+                        <input type="text" class="form-control mb-4" style="display:none" name="ID"
+                            value="<?php echo $row["ID"] ?>" readonly>
                         <div class="container bg-azul my-3 mr-1">
                             <div class="row">
-
+                                <input type="hidden" class="form-nome mb-2" name="ImagemAntiga"
+                                    value="<?php echo $row["ImagemPrincipal"] ?>">
                                 <div class="col-6 my-3 text-center">
-                                    <img src="imgs/produtos/<?php echo $row["ImagemPrincipal"] ?>" width="90%"
-                                        class="caixa-index border_10px">
+                                    <div class="row d-flex justify-content-center">
+                                        <label>Imagem do Produto</label>
+                                    </div>
+                                    <div id="preview"></div>
+                                    <img class="caixa-index border_10px mb-3" id="imagem-preview"
+                                        src="imgs/produtos/<?php echo $row['ImagemPrincipal']; ?>" alt="Imagem do produto"
+                                        width="90%">
+                                    <div class="row d-flex justify-content-center">
+                                        <input type="file" name="uploadfile" class="form-control upload-btn"
+                                            onchange="previewImage(this)" accept="image/*">
+                                    </div>
                                 </div>
+
+                                <script>
+                                    function previewImage(input) {
+                                        if (input.files && input.files[0]) {
+                                            var reader = new FileReader();
+                                            reader.onload = function (e) {
+                                                document.getElementById('imagem-preview').src = e.target.result;
+                                            }
+                                            reader.readAsDataURL(input.files[0]);
+                                        }
+                                    }
+                                </script>
                                 <div class="col-6">
                                     <div class="row">
                                         <div class="col-12 mt-2">
@@ -236,16 +312,15 @@ if (!isset($_SESSION['userEmail']) or (!isset($_SESSION['userPasswd']))) {
 
                             <div class="row">
                                 <div class="col-10"></div>
-                                    <div class="col"><button type="reset" class="btn btn-primary">Cancelar</button></div>
-                                    <div class="col"><button type="submit" class="btn btn-primary">Gravar</button></div>
-                                </div>
+                                <div class="col"><button type="reset" class="btn btn-primary">Cancelar</button></div>
+                                <div class="col"><button type="submit" class="btn btn-primary" name="submitform">Gravar</button></div>
                             </div>
                         </div>
-                        <?php
+                    </div>
+                    <?php
                     }
                 }
                 ?>
-            </div>
         </form>
     </div>
 

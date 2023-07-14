@@ -42,37 +42,35 @@ if (isset($_SESSION['userEmail']) or (isset($_SESSION['userPasswd']))) {
 </head>
 
 <body>
-    <?php include 'header_admin.php'; ?>
+    <?php include 'header_user.php'; ?>
 
     <div class="container my-5">
         <div class="row ">
             <div class="d-flex justify-content-center">
-                <div class="linha"></div>
-                <p class="font-22 bold">Produtos</p>
-                <div class="linha"></div>
+                <div class="col-5">
+                    <div class="linha"></div>
+                </div>
+                <div class="mx-5">
+                    <p class="font-22 bold">Carrossel 1</p>
+                </div>
+                <div class="col-5">
+                    <div class="linha"></div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="d-flex justify-content-around">
-                <a href="inserir_produto.php"><button class="btnAdmin">Adicionar produto</button></a>
-                <a href="todosOsProdutos.php"><button class="btnAdmin">Ver todos os produtos</button></a>
-                <a href="produtosPoucoStock.php"><button class="btnAdmin">Produtos com pouco stock</button></a>
-            </div>
-        </div>
-    </div>
-    <div class="container my-5">
-        <div class="row ">
-            <div class="d-flex justify-content-center">
-                <div class="linha"></div>
-                <p class="font-22 bold">Multimédia</p>
-                <div class="linha"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="d-flex justify-content-around">
-                <a href="carrossel.php"><button class="btnAdmin">Carrossel</button></a>
-                <a href="anuncios.php"><button class="btnAdmin">Anúncios</button></a>
-            </div>
+        <div class="row mt-3 mx-1 align-center">
+            <?php
+            $consultaCarrossel1 = "SELECT * FROM carrossel WHERE local = 1";
+            $resultadoCarrossel1 = $ligacao->query($consultaCarrossel1);
+            if ($resultadoCarrossel1->num_rows > 0) {
+                while ($row = $resultadoCarrossel1->fetch_assoc()) {
+                    ?>
+                    <a href="./editar_carrossel.php?local=1"><img src="imgs/<?php echo $row["imagem"] ?>"
+                            class="banners caixa-index"></a>
+                    <?php
+                }
+            }
+            ?>
         </div>
     </div>
 

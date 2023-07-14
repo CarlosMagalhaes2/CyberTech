@@ -129,10 +129,6 @@ footer {
     width: 90%;
 }
 
-.container-fluid-banners {
-    width: 80%;
-}
-
 .container-imagens {
     position: relative;
     text-align: center;
@@ -169,6 +165,7 @@ footer {
 
 .dropdown-item {
     color: #E7F6F2;
+    margin-left: 5px;
 }
 
 .dropdown-item:hover {
@@ -369,30 +366,6 @@ tr {
     color: #00A0B8;
     font-weight: 600;
 
-}
-
-.text_white {
-    color: #E7F6F2;
-}
-
-.text-white:link {
-    text-decoration: none;
-}
-
-
-.text-white:visited {
-    text-decoration: none;
-}
-
-
-.text-white:hover {
-    text-decoration: none;
-    color: #00A0B8;
-}
-
-
-.text-white:active {
-    text-decoration: none;
 }
 
 .weight_600 {
@@ -613,7 +586,7 @@ tr {
     color: #E7F6F2;
 }
 
-.banners{
+.banners {
     margin-top: 20px !important;
     margin-bottom: 20px !important;
     padding-top: 0px !important;
@@ -621,6 +594,7 @@ tr {
     padding-left: 0px !important;
     padding-right: 0px !important;
     border-radius: 10px;
+    width: 100% !important;
 }
 
 .form-nome {
@@ -633,12 +607,12 @@ tr {
     color: #0d2929;
     background-color: #ffffff00 !important;
     background-clip: padding-box;
-    border:  1px solid #ced4da !important;
+    border: 1px solid #ced4da !important;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     border-radius: 0.375rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .form-preco {
@@ -656,7 +630,7 @@ tr {
     -moz-appearance: none;
     appearance: none;
     border-radius: 0.375rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .form-desconto {
@@ -674,7 +648,7 @@ tr {
     -moz-appearance: none;
     appearance: none;
     border-radius: 0.375rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .form-resto {
@@ -692,7 +666,7 @@ tr {
     -moz-appearance: none;
     appearance: none;
     border-radius: 0.375rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .accordion-carateristicas {
@@ -740,7 +714,7 @@ tr {
     --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg: #00606e;
     --bs-btn-hover-border-color: #00A0B8;
-    --bs-btn-focus-shadow-rgb: 225,83,97;
+    --bs-btn-focus-shadow-rgb: 225, 83, 97;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #00A0B8;
     --bs-btn-active-border-color: #00A0B8;
@@ -750,39 +724,53 @@ tr {
     --bs-btn-disabled-border-color: #00A0B8;
     margin-top: -3px;
 }
+.btn-editar-disabled {
+    pointer-events: none;
+    color: #ffffff !important;
+    background-color: grey;
+    border-color: var(--bs-btn-disabled-border-color);
+    margin-top: -3px;
+    
+  }
 
 .select {
     position: relative;
     display: inline-block;
     margin-bottom: 15px;
     width: 100%;
-}    .select select {
-        font-family: 'Arial';
-        display: inline-block;
-        width: 100%;
-        cursor: pointer;
-        padding: 10px 15px;
-        outline: 0;
-        border: 1px solid #ced4da;
-        border-radius: 5px;
-        background: #E7F6F2;
-        color: #7b7b7b;
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-    }
-        .select select::-ms-expand {
-            display: none;
-        }
-        .select select:hover,
-        .select select:focus {
-            color: #000000;
-            background: #e3f4ef;
-        }
-        .select select:disabled {
-            opacity: 0.5;
-            pointer-events: none;
-        }
+}
+
+.select select {
+    font-family: 'Arial';
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    padding: 10px 15px;
+    outline: 0;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background: #E7F6F2;
+    color: #7b7b7b;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.select select::-ms-expand {
+    display: none;
+}
+
+.select select:hover,
+.select select:focus {
+    color: #000000;
+    background: #e3f4ef;
+}
+
+.select select:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 .select_arrow {
     position: absolute;
     top: 16px;
@@ -792,10 +780,90 @@ tr {
     border-width: 8px 5px 0px 5px;
     border-color: #7b7b7b transparent transparent transparent;
 }
-.select select:hover ~ .select_arrow,
-.select select:focus ~ .select_arrow {
+
+.select select:hover~.select_arrow,
+.select select:focus~.select_arrow {
     border-top-color: #000000;
 }
-.select select:disabled ~ .select_arrow {
+
+.select select:disabled~.select_arrow {
     border-top-color: #cccccc;
+}
+
+.btnAdmin {
+    width: 400px;
+    height: 50px;
+    border-radius: 15px;
+    color: #00A0B8;
+    font-size: large;
+    font-weight: bold;
+    border: #00A0B8 solid 3px;
+    box-shadow: 5px 5px 5px #7b7b7b;
+}
+
+.linha {
+    width: 100%;
+    height: 8px;
+    border-radius: 10px;
+    background: #00A0B8;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.btn-favoritos {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    fill: #7b7b7b;
+}
+
+.btn-favoritos:hover {
+    fill: #00A0B8;
+}
+
+.btn-favs {
+    fill: #00A0B8;
+}
+
+.btn-favs:hover {
+    fill: #7b7b7b !important;
+}
+
+.btn-favs-added {
+    fill: #00A0B8;
+}
+
+.btn-favs-added:hover {
+    fill: #7b7b7b !important;
+}
+
+.container-imagem {
+    position: relative;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container-imagem .btn-imagens {
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: none;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.select-ordem{
+    background-color: #e8eeed;
+
+    border: none;
+    border-bottom: 2px solid #00606e !important;
+    font-weight: 600;
+    color: #060606;
+}
+
+.upload-btn{
+    width: 80% !important;
+    height: 38px !important;
 }

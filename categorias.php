@@ -38,28 +38,25 @@ session_start();
             }
         }
         include('header_user.php');
-    }
-    ?>
+    } ?>
 
     <div class="container ">
         <div class="row my-3">
             <div class="col-9">
                 <?php
                 $Categoria = $_GET['Categoria'];
-                $SubCategoria = $_GET['SubCategoria'];
                 $ordem = $_GET['order'];
                 $partes = explode(':', $ordem);
                 $selecao = $partes[0];
                 $orientacao = $partes[1];
-
                 ?>
 
                 <span class="texto-destaques ml-5"><img src="imgs/barra.webp" height="30px" class="barra">
-                    <a class="link-quadrados"
-                        href="./categorias.php?Categoria=<?php echo $Categoria ?>&order=contador:desc"> <?php echo $Categoria ?> </a> >
-                    <?php echo $SubCategoria ?>
+                    <?php echo $Categoria ?>
                 </span>
+
             </div>
+
             <div class="col">
                 <label>Ordenar por:</label>
                 <select class="select-ordem" id="productOrder">
@@ -74,12 +71,11 @@ session_start();
         </div>
 
         <div class="row mt-2">
-
             <?php
             $consulta = "SELECT * FROM produtos
-            INNER JOIN carateristicas
-            ON produtos.ID = carateristicas.IdProduto
-            where SubCategoria = '$SubCategoria'
+            INNER JOIN carateristicas   
+            ON produtos.ID = carateristicas.IdProduto 
+            where Categoria = '$Categoria'
             ORDER BY ";
 
             $consulta .= "$selecao $orientacao";
@@ -110,10 +106,10 @@ session_start();
                             </a>
                             <div class="card-text align-items-middle">
                                 <p class="font-12 text-truncate-2">
-                                    |
-                                    <?php
+                                    | <?php
                                     echo $row["Fabricante"]; ?> |
                                     <?php
+
                                     if ($row["Processador"] != NULL) {
                                         echo $row["Processador"]; ?> |
                                         <?php
@@ -160,7 +156,6 @@ session_start();
                                     <div class="col-10">
                                         <?php if ($row["Desconto"] == 0) {
                                             ?>
-
                                             <span class="preco">
                                                 <?php echo $row["Preco"] ?> €
                                             </span><br>
@@ -172,7 +167,6 @@ session_start();
                                                         d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Z" />
                                                 </svg>
                                             </span>
-
                                             <?php
                                         } elseif ($row["Desconto"] == 1) {
                                             $preco_desconto = $row["Preco"] - $row["ValorDesconto"]
@@ -220,26 +214,21 @@ session_start();
                                         <?php
                                         }
                                         ?>
-                                        </button>
-                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <?php
                 }
             }
             ?>
         </div>
     </div>
-    </div>
-    </div>
 
     <?php include "footer.php"; ?>
     <!-- JavaScript Bundle with Popper -->
-    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
 
@@ -280,6 +269,7 @@ session_start();
             }
         });
     </script>
+
 
 
 </body>

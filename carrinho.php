@@ -107,10 +107,10 @@ if (isset($_GET['apagar_tudo'])) {
         <div class="row">
             <div class="col-9">
 
-                <div class="container bg-azul-carrinho text-white my-3">
+                <div class="container my-3">
                     <div class="row">
                         <div class="table-responsive">
-                            <table class="table text-white">
+                            <table class="table bg-azul">
                                 <thead>
                                     <th scope="col">Produto</th>
                                     <th scope="col">Detalhes</th>
@@ -150,9 +150,6 @@ if (isset($_GET['apagar_tudo'])) {
                                                             <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
                                                         </svg>
                                                     </label>
-
-
-
                                                 </form>
                                             </th>
                                             <th class="mx-1">
@@ -209,7 +206,7 @@ if (isset($_GET['apagar_tudo'])) {
                 </div>
             </div>
             <div class="col-3">
-                <div class="container bg-azul text-white my-3">
+                <div class="container bg-azul  my-3">
                     <div class="row">
                         <div class="col">
                             <p class="texto-destaques TituloResumo">Resumo da Compra</p>

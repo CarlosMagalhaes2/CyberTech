@@ -47,32 +47,61 @@ if (isset($_SESSION['userEmail']) or (isset($_SESSION['userPasswd']))) {
     <div class="container my-5">
         <div class="row ">
             <div class="d-flex justify-content-center">
-                <div class="linha"></div>
-                <p class="font-22 bold">Produtos</p>
-                <div class="linha"></div>
+                <div class="col-5">
+                    <div class="linha"></div>
+                </div>
+
+                <div class="mx-5">
+                    <p class="font-22 bold">Anúncio 1</p>
+                </div>
+                <div class="col-5">
+                    <div class="linha"></div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="d-flex justify-content-around">
-                <a href="inserir_produto.php"><button class="btnAdmin">Adicionar produto</button></a>
-                <a href="todosOsProdutos.php"><button class="btnAdmin">Ver todos os produtos</button></a>
-                <a href="produtosPoucoStock.php"><button class="btnAdmin">Produtos com pouco stock</button></a>
-            </div>
+        <div class="row mt-3 mx-1 align-center">
+            <?php
+            $consultaAnuncio1 = "SELECT * FROM anuncios WHERE local = 1";
+            $resultadoAnuncio1 = $ligacao->query($consultaAnuncio1);
+            if ($resultadoAnuncio1->num_rows > 0) {
+                while ($row = $resultadoAnuncio1->fetch_assoc()) {
+                    ?>
+                    <a href="./editar_anuncio.php?local=1"><img src="imgs/<?php echo $row["imagem"] ?>"
+                            class="banners caixa-index"></a>
+                    <?php
+                }
+            }
+            ?>
         </div>
     </div>
     <div class="container my-5">
         <div class="row ">
             <div class="d-flex justify-content-center">
-                <div class="linha"></div>
-                <p class="font-22 bold">Multimédia</p>
-                <div class="linha"></div>
+                <div class="col-5">
+                    <div class="linha"></div>
+                </div>
+
+                <div class="mx-5">
+                    <p class="font-22 bold">Anúncio 2</p>
+                </div>
+                <div class="col-5">
+                    <div class="linha"></div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="d-flex justify-content-around">
-                <a href="carrossel.php"><button class="btnAdmin">Carrossel</button></a>
-                <a href="anuncios.php"><button class="btnAdmin">Anúncios</button></a>
-            </div>
+        <div class="row mt-3 mx-1 align-center">
+            <?php
+            $consultaAnuncio2 = "SELECT * FROM anuncios WHERE local = 2";
+            $resultadoAnuncio2 = $ligacao->query($consultaAnuncio2);
+            if ($resultadoAnuncio2->num_rows > 0) {
+                while ($row = $resultadoAnuncio2->fetch_assoc()) {
+                    ?>
+                    <a href="./editar_anuncio.php?local=2"><img src="imgs/<?php echo $row["imagem"] ?>"
+                            class="banners caixa-index"></a>
+                    <?php
+                }
+            }
+            ?>
         </div>
     </div>
 

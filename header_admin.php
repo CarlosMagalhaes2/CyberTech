@@ -4,7 +4,7 @@
             <ul class="navbar-nav mr-auto mr-0">
 
                 <li class="nav-item mx-2">
-                    <a class="btn btn-produtos" href="/CyberTech/inserir_produto.php" role="button">Inserir Produto</a>
+                    <a class="btn btn-produtos" href="./admin.php" role="button">Admin</a>
                 </li>
             </ul>
             <a class="navbar-brand" href="/Cybertech">

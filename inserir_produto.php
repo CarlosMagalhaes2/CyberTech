@@ -17,8 +17,7 @@ if (isset($_POST['submitform'])) {
         $fpasta = $pasta . $ImagemPrincipal;
         move_uploaded_file($temp_name, $fpasta);
     }
-
-    $ID = $_POST['ID'];
+    
     $Nome = $_POST['Nome'];
     $Fabricante = $_POST['Fabricante'];
     $Preco = $_POST['Preco'];
@@ -27,16 +26,46 @@ if (isset($_POST['submitform'])) {
     $ValorDesconto = $_POST['ValorDesconto'];
     $Destaque = $_POST['Destaque'];
     $Descricao = $_POST['Descricao'];
+    $Processador = $_POST['Processador'];
+    $MemoriaRAM = $_POST['MemoriaRAM'];
+    $PlacaGrafica = $_POST['PlacaGrafica'];
+    $PlacaGrafica2 = $_POST['PlacaGrafica2'];
+    $Armazenamento = $_POST['Armazenamento'];
+    $TipoArmazenamento = $_POST['TipoArmazenamento'];
+    $Resolucao = $_POST['Resolucao'];
+    $TamanhoEcra = $_POST['TamanhoEcra'];
+    $SistemaOperativo = $_POST['SistemaOperativo'];
+    $Categoria = $_POST['Categoria'];
+    $SubCategoria = $_POST['SubCategoria'];
 
-    $inserir = "INSERT INTO produtos SET Nome='$Nome', Fabricante='$Fabricante', Preco='$Preco', Stock='$Stock', Desconto='$Desconto', 
-ValorDesconto='$ValorDesconto', Destaque='$Destaque', Descricao='$Descricao', ImagemPrincipal='$ImagemPrincipal'";
+
+
+    if ($ValorDesconto === null or $ValorDesconto === 0) {
+        $ValorDesconto = null;
+    }
+
+    $inserir = "INSERT INTO produtos SET Nome='$Nome',ImagemPrincipal='$ImagemPrincipal', Fabricante='$Fabricante', Preco='$Preco', Stock='$Stock', Desconto='$Desconto', ValorDesconto='$ValorDesconto', Destaque='$Destaque', Descricao='$Descricao', Categoria='$Categoria', SubCategoria='$SubCategoria'";
 
     if ($ligacao->query($inserir) === TRUE) {
-        header("Location: admin.php");
-        die();
+        $produtoID = $ligacao->insert_id;
+
+        $inserirCarateristicas = "INSERT INTO carateristicas (IdCategoria, IdProduto, NomeProduto, Processador, MemoriaRAM, PlacaGrafica, PlacaGrafica2, Armazenamento, TipoArmazenamento, Resolucao, TamanhoEcra, SistemaOperativo) VALUES ('$produtoID', '$produtoID', '$Nome', '$Processador', '$MemoriaRAM', '$PlacaGrafica', '$PlacaGrafica2', '$Armazenamento', '$TipoArmazenamento', '$Resolucao', '$TamanhoEcra', '$SistemaOperativo')";
+
+        if ($ligacao->query($inserirCarateristicas) === TRUE) {
+            $atualizar = "UPDATE produtos SET Carateristicas = '$produtoID' WHERE ID=$produtoID";
+            if ($ligacao->query($atualizar) === TRUE) {
+                header("Location: detalhes.php?ID=$produtoID");
+                die();
+            }
+
+
+        } else {
+            echo "Erro: " . $inserirCarateristicas . "<br>" . $ligacao->error;
+        }
     } else {
-        echo "Erro: " . $inserir . "<br>", $ligacao->$error;
+        echo "Erro: " . $inserir . "<br>" . $ligacao->error;
     }
+
 }
 ?>
 
@@ -86,11 +115,16 @@ ValorDesconto='$ValorDesconto', Destaque='$Destaque', Descricao='$Descricao', Im
                     <div class="row">
 
                         <div class="col-6 my-3 text-center">
+                            
+                            <div class="row d-flex justify-content-center">
+                            <label>Imagem do Produto</label>
+                            </div>
                             <div id="preview"></div>
-                            <label>Profile Photo</label>
+                            <div class="row d-flex justify-content-center">
+                            <input type="file" name="uploadfile" class="form-control upload-btn" onchange="previewImagem(this)" accept="image/*">
+                            </div>
                             <br>
-                            <input type="file" name="ImagemPrincipal" id="ImagemPrincipal" onchange="previewImagem(this)"
-                                accept="image/*">
+                            
 
                             <script>
                                 function previewImagem(input1) {
@@ -106,6 +140,7 @@ ValorDesconto='$ValorDesconto', Destaque='$Destaque', Descricao='$Descricao', Im
                                     }
                                 }
                             </script>
+
                         </div>
                         <div class="col-6">
                             <div class="row">
@@ -161,7 +196,7 @@ ValorDesconto='$ValorDesconto', Destaque='$Destaque', Descricao='$Descricao', Im
                                 <div class="col-6">
                                     <label>Categoria</label>
                                     <div class="select">
-                                        <select id="Categoria">
+                                        <select id="Categoria" name="Categoria">
                                             <option selected>Categoria ...</option>
                                             <option value="Portáteis">Portáteis</option>
                                             <option value="Desktops">Desktops</option>
@@ -180,7 +215,7 @@ ValorDesconto='$ValorDesconto', Destaque='$Destaque', Descricao='$Descricao', Im
                                 <div class="col-6">
                                     <label>Subcategoria</label>
                                     <div class="select">
-                                        <select id="SubCategoria">
+                                        <select id="SubCategoria" name="SubCategoria">
                                             <option selected>Subcategoria ...</option>
                                             <optgroup label="Portáteis">
                                                 <option value="Portáteis">Portáteis Windows</option>
@@ -191,10 +226,50 @@ ValorDesconto='$ValorDesconto', Destaque='$Destaque', Descricao='$Descricao', Im
                                                 <option value="Workstations">Workstations</option>
                                                 <option value="All-in-One">All-in-One</option>
                                             </optgroup>
-                                            <optgroup label="Desktops">
-                                                <option value="Desktops Gaming">Desktops Gaming</option>
-                                                <option value="Workstations">Workstations</option>
-                                                <option value="All-in-One">All-in-One</option>
+                                            <optgroup label="Componentes">
+                                                <option value="Processadores">Processadores</option>
+                                                <option value="Placas Graficas">Placas Graficas</option>
+                                                <option value="Memória RAM">Memória RAM</option>
+                                                <option value="Motherboards">Motherboards</option>
+                                                <option value="Armazenamento">Armazenamento</option>
+                                                <option value="Refrigeração">Refrigeração</option>
+                                                <option value="Fontes de Alimentação">Fontes de Alimentação</option>
+                                                <option value="Caixas">Caixas</option>
+                                            </optgroup>
+                                            <optgroup label="Smartphones">
+                                                <option value="Android">Android</option>
+                                                <option value="iPhone">iPhone</option>
+                                                <option value="Acessórios">Acessórios</option>
+                                            </optgroup>
+                                            <optgroup label="Som">
+                                                <option value="Headsets">Headsets</option>
+                                                <option value="Headphones">Headphones</option>
+                                                <option value="Microfones">Microfones</option>
+                                                <option value="Colunas">Colunas</option>
+                                            </optgroup>
+                                            <optgroup label="Imagem">
+                                                <option value="Monitores">Monitores</option>
+                                                <option value="Televisões">Televisões</option>
+                                            </optgroup>
+                                            <optgroup label="Periféricos">
+                                                <option value="Ratos">Ratos</option>
+                                                <option value="Teclados">Teclados</option>
+                                                <option value="Tapetes">Tapetes</option>
+                                                <option value="Gamepads">Gamepads</option>
+                                                <option value="Volantes e Pedais">Volantes e Pedais</option>
+                                            </optgroup>
+                                            <optgroup label="Cabos e Acessórios">
+                                                <option value="Cabos HDMI">Cabos HDMI</option>
+                                                <option value="Cabos Display Port">Cabos Display Port</option>
+                                                <option value="Cabos USB-C">Cabos USB-C</option>
+                                                <option value="Cabos Lightning">Cabos Lightning</option>
+                                                <option value="Cabos de Internet">Cabos de Internet</option>
+                                                <option value="Carregadores">Carregadores</option>
+                                            </optgroup>
+                                            <optgroup label="Consolas">
+                                                <option value="Playstation">Playstation</option>
+                                                <option value="Xbox">Xbox</option>
+                                                <option value="Nintendo Switch">Nintendo Switch</option>
                                             </optgroup>
                                         </select>
                                         <div class="select_arrow">
@@ -302,7 +377,8 @@ ValorDesconto='$ValorDesconto', Destaque='$Destaque', Descricao='$Descricao', Im
                     <div class="row">
                         <div class="col-10"></div>
                         <div class="col"><button type="reset" class="btn btn-primary">Cancelar</button></div>
-                        <div class="col"><button type="submit" class="btn btn-primary">Gravar</button></div>
+                        <div class="col"><button type="submit" class="btn btn-primary" name="submitform">Gravar</button>
+                        </div>
                     </div>
                 </div>
             </div>
