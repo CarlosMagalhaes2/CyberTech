@@ -71,7 +71,7 @@ if (isset($_POST['submitform'])) {
 </head>
 
 <body>
-    <?php include 'header_admin.php'; ?>
+    <?php include 'header_user.php'; ?>
 
     <div class="container my-5">
         <?php

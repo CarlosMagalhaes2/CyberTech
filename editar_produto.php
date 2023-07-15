@@ -90,7 +90,7 @@ if (isset($_POST['submitform'])) {
 </head>
 
 <body>
-    <?php include 'header_admin.php'; ?>
+    <?php include 'header_user.php'; ?>
 
     <?php
 

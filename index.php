@@ -58,13 +58,50 @@ session_start();
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="imgs/slider1.webp" class="d-block w-100" alt="...">
+          <?php
+          $consultaCarrossel1 = "SELECT * FROM carrossel WHERE local = 1";
+          $resultadoCarrossel1 = $ligacao->query($consultaCarrossel1);
+          if ($resultadoCarrossel1->num_rows > 0) {
+            while ($row = $resultadoCarrossel1->fetch_assoc()) {
+              ?>
+              <a href=".<?php echo $row["url"]?>">
+              <img src="imgs/<?php echo $row["imagem"] ?>" class="d-block w-100" alt="...">
+              </a>
+            <?php
+            }
+          }
+          ?>
         </div>
         <div class="carousel-item">
-          <img src="imgs/slider2.webp" class="d-block w-100" alt="...">
+
+        <?php
+          $consultaCarrossel2 = "SELECT * FROM carrossel WHERE local = 2";
+          $resultadoCarrossel2 = $ligacao->query($consultaCarrossel2);
+          if ($resultadoCarrossel2->num_rows > 0) {
+            while ($row = $resultadoCarrossel2->fetch_assoc()) {
+              ?>
+              <a href=".<?php echo $row["url"]?>">
+              <img src="imgs/<?php echo $row["imagem"] ?>" class="d-block w-100" alt="...">
+              </a>
+            <?php
+            }
+          }
+          ?>
         </div>
         <div class="carousel-item">
-          <img src="imgs/slider3.webp" class="d-block w-100" alt="...">
+        <?php
+          $consultaCarrossel3 = "SELECT * FROM carrossel WHERE local = 3";
+          $resultadoCarrossel3 = $ligacao->query($consultaCarrossel3);
+          if ($resultadoCarrossel3->num_rows > 0) {
+            while ($row = $resultadoCarrossel3->fetch_assoc()) {
+              ?>
+              <a href=".<?php echo $row["url"]?>">
+              <img src="imgs/<?php echo $row["imagem"] ?>" class="d-block w-100" alt="...">
+              </a>
+            <?php
+            }
+          }
+          ?>
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -303,10 +340,10 @@ session_start();
       <?php
       $consultaAnuncio1 = "SELECT * FROM anuncios WHERE local = 1";
       $resultadoAnuncio1 = $ligacao->query($consultaAnuncio1);
-      if($resultadoAnuncio1->num_rows > 0){
-        while($row = $resultadoAnuncio1->fetch_assoc()){
+      if ($resultadoAnuncio1->num_rows > 0) {
+        while ($row = $resultadoAnuncio1->fetch_assoc()) {
           ?>
-          <a href=".<?php echo $row["url"]?>"><img src="imgs/<?php echo $row["imagem"]?>" class="banners caixa-index"></a>
+          <a href=".<?php echo $row["url"] ?>"><img src="imgs/<?php echo $row["imagem"] ?>" class="banners caixa-index"></a>
           <?php
         }
       }
@@ -355,7 +392,7 @@ session_start();
               </a>
               <div class="card-text align-items-middle">
                 <p class="font-12 text-truncate-2">
-                  | 
+                  |
                   <?php
                   echo $row["Fabricante"]; ?> |
                   <?php
@@ -484,10 +521,10 @@ session_start();
       <?php
       $consultaAnuncio2 = "SELECT * FROM anuncios WHERE local = 2";
       $resultadoAnuncio2 = $ligacao->query($consultaAnuncio2);
-      if($resultadoAnuncio2->num_rows > 0){
-        while($row = $resultadoAnuncio2->fetch_assoc()){
+      if ($resultadoAnuncio2->num_rows > 0) {
+        while ($row = $resultadoAnuncio2->fetch_assoc()) {
           ?>
-          <a href=".<?php echo $row["url"]?>"><img src="imgs/<?php echo $row["imagem"]?>" class="banners caixa-index"></a>
+          <a href=".<?php echo $row["url"] ?>"><img src="imgs/<?php echo $row["imagem"] ?>" class="banners caixa-index"></a>
           <?php
         }
       }
@@ -536,7 +573,7 @@ session_start();
               </a>
               <div class="card-text align-items-middle">
                 <p class="font-12 text-truncate-2">
-                  |  
+                  |
                   <?php
                   echo $row["Fabricante"]; ?> |
                   <?php

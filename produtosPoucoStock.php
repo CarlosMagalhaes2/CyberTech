@@ -41,7 +41,7 @@ if (isset($_SESSION['userEmail']) or (isset($_SESSION['userPasswd']))) {
 </head>
 
 <body>
-    <?php include 'header_admin.php'; ?>
+    <?php include 'header_user.php'; ?>
 
     <?php
 

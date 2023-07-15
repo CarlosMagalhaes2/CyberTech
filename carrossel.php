@@ -73,6 +73,64 @@ if (isset($_SESSION['userEmail']) or (isset($_SESSION['userPasswd']))) {
             ?>
         </div>
     </div>
+    <div class="container my-5">
+        <div class="row ">
+            <div class="d-flex justify-content-center">
+                <div class="col-5">
+                    <div class="linha"></div>
+                </div>
+                <div class="mx-5">
+                    <p class="font-22 bold">Carrossel 2</p>
+                </div>
+                <div class="col-5">
+                    <div class="linha"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 mx-1 align-center">
+            <?php
+            $consultaCarrossel2 = "SELECT * FROM carrossel WHERE local = 2";
+            $resultadoCarrossel2 = $ligacao->query($consultaCarrossel2);
+            if ($resultadoCarrossel2->num_rows > 0) {
+                while ($row = $resultadoCarrossel2->fetch_assoc()) {
+                    ?>
+                    <a href="./editar_carrossel.php?local=2"><img src="imgs/<?php echo $row["imagem"] ?>"
+                            class="banners caixa-index"></a>
+                    <?php
+                }
+            }
+            ?>
+        </div>
+    </div>
+    <div class="container my-5">
+        <div class="row ">
+            <div class="d-flex justify-content-center">
+                <div class="col-5">
+                    <div class="linha"></div>
+                </div>
+                <div class="mx-5">
+                    <p class="font-22 bold">Carrossel 3</p>
+                </div>
+                <div class="col-5">
+                    <div class="linha"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 mx-1 align-center">
+            <?php
+            $consultaCarrossel3 = "SELECT * FROM carrossel WHERE local = 3";
+            $resultadoCarrossel3 = $ligacao->query($consultaCarrossel3);
+            if ($resultadoCarrossel3->num_rows > 0) {
+                while ($row = $resultadoCarrossel3->fetch_assoc()) {
+                    ?>
+                    <a href="./editar_carrossel.php?local=3"><img src="imgs/<?php echo $row["imagem"] ?>"
+                            class="banners caixa-index"></a>
+                    <?php
+                }
+            }
+            ?>
+        </div>
+    </div>
 
     <?php include 'footer.php'; ?>
 

@@ -24,6 +24,35 @@ if (isset($_SESSION['userEmail']) or (isset($_SESSION['userPasswd']))) {
     }
 }
 
+$local = $_GET['local'];
+
+if (isset($_POST['submitform'])) {
+    $nomeBanner = $_POST['nomeBanner'];
+    $imagemAntiga = $_POST['ImagemAntiga'];
+    $url = $_POST['url'];
+
+    $pasta = "imgs/";
+    $imagem = $_FILES['uploadfile']['name'];
+    $temp_name = $_FILES['uploadfile']['tmp_name'];
+
+    if ($imagem != "") {
+        if (file_exists($pasta . $imagem)) {
+            $imagem = time() . '_' . $imagem;
+        }
+        $fpasta = $pasta . $imagem;
+        move_uploaded_file($temp_name, $fpasta);
+    } else {
+        // Mantém a imagem existente se nenhuma nova imagem for enviada
+        $imagem = $imagemAntiga;
+    }
+
+    $atualizar = "UPDATE carrossel SET nomeBanner='$nomeBanner',imagem='$imagem',url='$url' WHERE local = $local";
+    if ($ligacao->query($atualizar) === TRUE) {
+        header("Location: carrossel.php");
+        die();
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -42,68 +71,65 @@ if (isset($_SESSION['userEmail']) or (isset($_SESSION['userPasswd']))) {
 </head>
 
 <body>
-    <?php include 'header_admin.php'; ?>
+    <?php include 'header_user.php'; ?>
 
     <div class="container my-5">
-        <div class="row ">
-            <div class="d-flex justify-content-center">
-                <div class="col-5">
-                    <div class="linha"></div>
-                </div>
+        <?php
+        $consultaCarrossel = "SELECT * FROM carrossel WHERE local = $local";
+        $resultadoCarrossel = $ligacao->query($consultaCarrossel);
+        if ($resultadoCarrossel->num_rows > 0) {
+            while ($row = $resultadoCarrossel->fetch_assoc()) {
+                ?>
+                <div class="row ">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-6">
+                            <div class="linha"></div>
+                        </div>
 
-                <div class="mx-5">
-                    <p class="font-22 bold">Anúncio 1</p>
+                        <div class="mx-1">
+                            <p class="font-22 bold">
+                                <?php echo $local ?>
+                            </p>
+                        </div>
+                        <div class="col-6">
+                            <div class="linha"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-5">
-                    <div class="linha"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-3 mx-1 align-center">
-            <?php
-            $consultaAnuncio1 = "SELECT * FROM anuncios WHERE local = 1";
-            $resultadoAnuncio1 = $ligacao->query($consultaAnuncio1);
-            if ($resultadoAnuncio1->num_rows > 0) {
-                while ($row = $resultadoAnuncio1->fetch_assoc()) {
-                    ?>
-                    <a href="./editar_anuncio.php?local=1"><img src="imgs/<?php echo $row["imagem"] ?>"
-                            class="banners caixa-index"></a>
-                    <?php
-                }
-            }
-            ?>
-        </div>
-    </div>
-    <div class="container my-5">
-        <div class="row ">
-            <div class="d-flex justify-content-center">
-                <div class="col-5">
-                    <div class="linha"></div>
-                </div>
+                <form action="#" method="post" enctype="multipart/form-data">
+                    <div class="row mb-3">
+                        <label>Nome da Campanha</label>
+                        <input type="text" class="form-nome mb-2" name="nomeBanner"
+                            value="<?php echo $row["nomeBanner"] ?>">
+                    </div>
+                    <div class="row mb-3">
+                        <label>URL (exemplo:"/categorias.php?Categoria=Portáteis&order=contador:desc")</label>
+                        <input type="text" class="form-resto mb-2" name="url" value="<?php echo $row["url"] ?>">
+                    </div>
+                    <div class="row ">
+                        <input type="hidden" class="form-nome mb-2" name="ImagemAntiga" value="<?php echo $row["imagem"] ?>">
+                        <label>Imagem da Campanha (imagens 1920x400)</label>
+                        <div id="preview"></div>
+                        <img class="banners caixa-index" id="imagem-preview" src="imgs/<?php echo $row['imagem']; ?>"
+                            alt="Imagem do produto" width="100%" style="margin-top:5px !important">
+                        <div class="row d-flex justify-content-center">
+                            <input type="file" name="uploadfile" class="form-control upload-btn" onchange="previewImage(this)"
+                                accept="image/*">
+                        </div>
+                        <div class="row mt-3">
+                                <div class="col-10"></div>
+                                <div class="col"><button type="reset" class="btn btn-primary">Cancelar</button></div>
+                                <div class="col"><button type="submit" class="btn btn-primary" name="submitform">Gravar</button></div>
+                            </div>
 
-                <div class="mx-5">
-                    <p class="font-22 bold">Anúncio 2</p>
-                </div>
-                <div class="col-5">
-                    <div class="linha"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-3 mx-1 align-center">
-            <?php
-            $consultaAnuncio2 = "SELECT * FROM anuncios WHERE local = 2";
-            $resultadoAnuncio2 = $ligacao->query($consultaAnuncio2);
-            if ($resultadoAnuncio2->num_rows > 0) {
-                while ($row = $resultadoAnuncio2->fetch_assoc()) {
-                    ?>
-                    <a href="./editar_anuncio.php?local=2"><img src="imgs/<?php echo $row["imagem"] ?>"
-                            class="banners caixa-index"></a>
-                    <?php
-                }
+                </form>
+                <?php
             }
-            ?>
-        </div>
+        }
+        ?>
     </div>
+    </div>
+
 
     <?php include 'footer.php'; ?>
 
@@ -111,6 +137,17 @@ if (isset($_SESSION['userEmail']) or (isset($_SESSION['userPasswd']))) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
+    <script>
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('imagem-preview').src = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 </body>
 
 </html>

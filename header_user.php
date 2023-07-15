@@ -19,16 +19,33 @@
                 <div id="Descontos" class="accordion-collapse collapse" data-bs-parent="#menu">
                     <div class="accordion-body">
                         <ul class="dropdown">
-                            <li><a class="dropdown-item" href="descontos.php?Categoria=Portáteis&order=contador:desc">Portateis</a></li>
-                            <li><a class="dropdown-item" href="descontos.php?Categoria=Desktops&order=contador:desc">Desktops</a></li>
-                            <li><a class="dropdown-item" href="descontos.php?Categoria=Componentes&order=contador:desc">Componentes</a></li>
-                            <li><a class="dropdown-item" href="descontos.php?Categoria=Smartphones&order=contador:desc">Smartphones</a></li>
-                            <li><a class="dropdown-item" href="descontos.php?Categoria=Som&order=contador:desc">Som</a></li>
-                            <li><a class="dropdown-item" href="descontos.php?Categoria=Imagem&order=contador:desc">Imagem</a></li>
-                            <li><a class="dropdown-item" href="descontos.php?Categoria=Periféricos&order=contador:desc">Periféricos</a></li>
-                            <li><a class="dropdown-item" href="descontos.php?Categoria=Cabos e Acessórios&order=contador:desc">Cabos e
+                            <li><a class="dropdown-item"
+                                    href="descontosCategorias.php?Categoria=Portáteis&order=contador:desc">Portateis</a>
+                            </li>
+                            <li><a class="dropdown-item"
+                                    href="descontosCategorias.php?Categoria=Desktops&order=contador:desc">Desktops</a>
+                            </li>
+                            <li><a class="dropdown-item"
+                                    href="descontosCategorias.php?Categoria=Componentes&order=contador:desc">Componentes</a>
+                            </li>
+                            <li><a class="dropdown-item"
+                                    href="descontosCategorias.php?Categoria=Smartphones&order=contador:desc">Smartphones</a>
+                            </li>
+                            <li><a class="dropdown-item"
+                                    href="descontosCategorias.php?Categoria=Som&order=contador:desc">Som</a>
+                            </li>
+                            <li><a class="dropdown-item"
+                                    href="descontosCategorias.php?Categoria=Imagem&order=contador:desc">Imagem</a></li>
+                            <li><a class="dropdown-item"
+                                    href="descontosCategorias.php?Categoria=Periféricos&order=contador:desc">Periféricos</a>
+                            </li>
+                            <li><a class="dropdown-item"
+                                    href="descontosCategorias.php?Categoria=Cabos e Acessórios&order=contador:desc">Cabos
+                                    e
                                     Acessórios</a></li>
-                            <li><a class="dropdown-item" href="descontos.php?Categoria=Consolas&order=contador:desc">Consolas</a></li>
+                            <li><a class="dropdown-item"
+                                    href="descontosCategorias.php?Categoria=Consolas&order=contador:desc">Consolas</a>
+                            </li>
                             <li><a class="dropdown-item" href="descontos.php?&order=contador:desc">Todos</a></li>
                         </ul>
                     </div>
@@ -51,7 +68,8 @@
                             <li><a class="dropdown-item"
                                     href="./subCategorias.php?Categoria=Portáteis&SubCategoria=Portáteis Apple&order=contador:desc">Portáteis
                                     Apple</a></li>
-                            <li><a class="dropdown-item" href="categorias.php?Categoria=Portáteis&order=contador:desc">Todos</a></li>
+                            <li><a class="dropdown-item"
+                                    href="categorias.php?Categoria=Portáteis&order=contador:desc">Todos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -76,7 +94,8 @@
                             <li><a class="dropdown-item"
                                     href="./subCategorias.php?Categoria=Desktops&SubCategoria=Computadores All-in-one&order=contador:desc">Computadores
                                     All-in-one</a></li>
-                            <li><a class="dropdown-item" href="./categorias.php?Categoria=Desktops&order=contador:desc">Todos</a></li>
+                            <li><a class="dropdown-item"
+                                    href="./categorias.php?Categoria=Desktops&order=contador:desc">Todos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -119,7 +138,8 @@
                             <li><a class="dropdown-item"
                                     href="./subCategorias.php?Categoria=Componentes&SubCategoria=Caixas&order=contador:desc">Caixas</a>
                             </li>
-                            <li><a class="dropdown-item" href="./categorias.php?categoria=Componentes&order=contador:desc">Todos</a>
+                            <li><a class="dropdown-item"
+                                    href="./categorias.php?categoria=Componentes&order=contador:desc">Todos</a>
                             </li>
                         </ul>
                     </div>
@@ -140,11 +160,13 @@
                                     href="./subCategorias.php?Categoria=Smartphones&SubCategoria=Android&order=contador:desc">Android</a>
                             </li>
                             <li><a class="dropdown-item"
-                                    href="./subCategorias.php?Categoria=Smartphones&SubCategoria=iPhone&order=contador:desc">iPhone</a></li>
+                                    href="./subCategorias.php?Categoria=Smartphones&SubCategoria=iPhone&order=contador:desc">iPhone</a>
+                            </li>
                             <li><a class="dropdown-item"
                                     href="./subCategorias.php?Categoria=Smartphones&SubCategoria=Acessórios&order=contador:desc">Acessórios</a>
                             </li>
-                            <li><a class="dropdown-item" href="./categorias.php?Categoria=Smartphones&order=contador:desc">Todos</a></li>
+                            <li><a class="dropdown-item"
+                                    href="./categorias.php?Categoria=Smartphones&order=contador:desc">Todos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -161,14 +183,19 @@
                     <div class="accordion-body">
                         <ul class="dropdown">
                             <li><a class="dropdown-item"
-                                    href="./subCategorias.php?Categoria=Som&SubCategoria=Headsets&order=contador:desc">Headsets</a></li>
+                                    href="./subCategorias.php?Categoria=Som&SubCategoria=Headsets&order=contador:desc">Headsets</a>
+                            </li>
                             <li><a class="dropdown-item"
-                                    href="./subCategorias.php?Categoria=Som&SubCategoria=Headphones&order=contador:desc">Headphones</a></li>
+                                    href="./subCategorias.php?Categoria=Som&SubCategoria=Headphones&order=contador:desc">Headphones</a>
+                            </li>
                             <li><a class="dropdown-item"
-                                    href="./subCategorias.php?Categoria=Som&SubCategoria=Microfone&order=contador:descs">Microfones</a></li>
+                                    href="./subCategorias.php?Categoria=Som&SubCategoria=Microfone&order=contador:descs">Microfones</a>
+                            </li>
                             <li><a class="dropdown-item"
-                                    href="./subCategorias.php?Categoria=Som&SubCategoria=Colunas&order=contador:desc">Colunas</a></li>
-                            <li><a class="dropdown-item" href="./categorias.php?Categoria=Som&order=contador:desc">Todos</a></li>
+                                    href="./subCategorias.php?Categoria=Som&SubCategoria=Colunas&order=contador:desc">Colunas</a>
+                            </li>
+                            <li><a class="dropdown-item"
+                                    href="./categorias.php?Categoria=Som&order=contador:desc">Todos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -190,7 +217,8 @@
                             <li><a class="dropdown-item"
                                     href="./subCategorias.php?Categoria=Imagem&SubCategoria=Televisões&order=contador:desc">Televisões</a>
                             </li>
-                            <li><a class="dropdown-item" href="./categorias.php?Categoria=Imagem&order=contador:desc">Todos</a></li>
+                            <li><a class="dropdown-item"
+                                    href="./categorias.php?Categoria=Imagem&order=contador:desc">Todos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -207,7 +235,8 @@
                     <div class="accordion-body">
                         <ul class="dropdown">
                             <li><a class="dropdown-item"
-                                    href="./subCategorias.php?Categoria=Periféricos&SubCategoria=Ratos&order=contador:desc">Ratos</a></li>
+                                    href="./subCategorias.php?Categoria=Periféricos&SubCategoria=Ratos&order=contador:desc">Ratos</a>
+                            </li>
                             <li><a class="dropdown-item"
                                     href="./subCategorias.php?Categoria=Periféricos&SubCategoria=Teclados&order=contador:desc">Teclados</a>
                             </li>
@@ -220,7 +249,8 @@
                             <li><a class="dropdown-item"
                                     href="./subCategorias.php?Categoria=Periféricos&SubCategoria=Volantes e Pedais&order=contador:desc">Volantes
                                     e Pedais</a></li>
-                            <li><a class="dropdown-item" href="./categorias.php?Categoria=Periféricos&order=contador:desc">Todos</a></li>
+                            <li><a class="dropdown-item"
+                                    href="./categorias.php?Categoria=Periféricos&order=contador:desc">Todos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -254,7 +284,8 @@
                             <li><a class="dropdown-item"
                                     href="./subCategorias.php?Categoria=Cabos e Acessórios&SubCategoria=Carregadores&order=contador:desc">Carregadores</a>
                             </li>
-                            <li><a class="dropdown-item" href="./categorias.php?Categoria=Cabos e Acessórios&order=contador:desc">Todos</a>
+                            <li><a class="dropdown-item"
+                                    href="./categorias.php?Categoria=Cabos e Acessórios&order=contador:desc">Todos</a>
                             </li>
                         </ul>
                     </div>
@@ -281,7 +312,8 @@
                                     href="./subCategorias.php?Categoria=Consolas&SubCategoria=Nintendo Switch&order=contador:desc">Nintendo
                                     Switch</a>
                             </li>
-                            <li><a class="dropdown-item" href="./categorias.php?Categoria=Consolas&order=contador:desc">Todos</a>
+                            <li><a class="dropdown-item"
+                                    href="./categorias.php?Categoria=Consolas&order=contador:desc">Todos</a>
                             </li>
                         </ul>
                     </div>
@@ -309,19 +341,20 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <!-- Pesquisa -->
             <div class="col-8">
-
-                <div class="input-group">
-                    <input type="text" class="form-control input-lg" id="search-church" placeholder="Pesquisa">
-                    <div class="input-group-btn">
-                        <button type="submit" class="btn-pesquisa">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-search" viewBox="0 0 16 16">
-                                <path
-                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                            </svg>
-                        </button>
+                <form action="resultadopesquisa.php" method="post" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control input-lg" name="pesquisa" placeholder="Pesquisa">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn-pesquisa">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-search" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
 
             <div class="col d-flex justify-content-end">
@@ -381,8 +414,6 @@
                         }
                         ?>
                         <li><a class="dropdown-item" href="/CyberTech/logout.php">Logout</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
 
                 </li>

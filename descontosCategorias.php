@@ -37,7 +37,7 @@ include_once("ligacao.php");
                 $consulta = "SELECT * FROM produtos
                 INNER JOIN carateristicas   
                 ON produtos.ID = carateristicas.IdProduto 
-                where Desconto = 1
+                where Categoria = '$Categoria' AND Desconto = 1
                 ORDER BY ";
 
                 $consulta .= "$selecao $orientacao";

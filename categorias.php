@@ -86,7 +86,7 @@ session_start();
                 while ($row = $resultado->fetch_assoc()) {
                     $IdProduto = $row['ID'];
                     ?>
-                    <div class="card mx-3 text-start d-flex" style="width: 18rem;">
+                    <div class="card m-3 text-start d-flex" style="width: 18rem;">
                         <a href="detalhes.php?ID=<?php echo $row['ID'] ?>">
                             <img class="card-img-top" src="imgs/produtos/<?php echo $row["ImagemPrincipal"] ?>"
                                 alt="Card image cap">
@@ -106,7 +106,8 @@ session_start();
                             </a>
                             <div class="card-text align-items-middle">
                                 <p class="font-12 text-truncate-2">
-                                    | <?php
+                                    |
+                                    <?php
                                     echo $row["Fabricante"]; ?> |
                                     <?php
 
@@ -224,6 +225,7 @@ session_start();
             }
             ?>
         </div>
+    </div>
     </div>
 
     <?php include "footer.php"; ?>
