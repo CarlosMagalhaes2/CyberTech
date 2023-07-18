@@ -44,12 +44,15 @@ if (isset($_POST['submitform'])) {
         $ValorDesconto = null;
     }
 
-    $inserir = "INSERT INTO produtos SET Nome='$Nome',ImagemPrincipal='$ImagemPrincipal', Fabricante='$Fabricante', Preco='$Preco', Stock='$Stock', Desconto='$Desconto', ValorDesconto='$ValorDesconto', Destaque='$Destaque', Descricao='$Descricao', Categoria='$Categoria', SubCategoria='$SubCategoria'";
+    $inserir = "INSERT INTO produtos SET Nome='$Nome',ImagemPrincipal='$ImagemPrincipal', Fabricante='$Fabricante',
+    Preco='$Preco', Stock='$Stock', Desconto='$Desconto', ValorDesconto='$ValorDesconto', Destaque='$Destaque', Descricao='$Descricao', Categoria='$Categoria', SubCategoria='$SubCategoria'";
 
     if ($ligacao->query($inserir) === TRUE) {
         $produtoID = $ligacao->insert_id;
 
-        $inserirCarateristicas = "INSERT INTO carateristicas (IdCategoria, IdProduto, NomeProduto, Processador, MemoriaRAM, PlacaGrafica, PlacaGrafica2, Armazenamento, TipoArmazenamento, Resolucao, TamanhoEcra, SistemaOperativo) VALUES ('$produtoID', '$produtoID', '$Nome', '$Processador', '$MemoriaRAM', '$PlacaGrafica', '$PlacaGrafica2', '$Armazenamento', '$TipoArmazenamento', '$Resolucao', '$TamanhoEcra', '$SistemaOperativo')";
+        $inserirCarateristicas = "INSERT INTO carateristicas (IdCategoria, IdProduto, NomeProduto, Processador,
+        MemoriaRAM, PlacaGrafica, PlacaGrafica2, Armazenamento, TipoArmazenamento, Resolucao, TamanhoEcra, SistemaOperativo) 
+        VALUES ('$produtoID', '$produtoID', '$Nome', '$Processador', '$MemoriaRAM', '$PlacaGrafica', '$PlacaGrafica2', '$Armazenamento', '$TipoArmazenamento', '$Resolucao', '$TamanhoEcra', '$SistemaOperativo')";
 
         if ($ligacao->query($inserirCarateristicas) === TRUE) {
             $atualizar = "UPDATE produtos SET Carateristicas = '$produtoID' WHERE ID=$produtoID";

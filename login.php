@@ -32,7 +32,7 @@ session_start();
                 <div class="row d-sm-flex">
                     <form role="search" action="validarlogin.php" method="post">
                         <div class="form-group mb-3 ">
-                            <label for="exampleInputEmail1">Email address</label>
+                            <label for="exampleInputEmail1">Email</label>
                             <input type="email" class="form-control mb-3" id="exampleInputEmail1" name="email" placeholder="Enter email" required class="form-control">
                         </div>
                         <div class="form-group">
@@ -81,7 +81,7 @@ session_start();
                             <input class="form-control" id="exampleFormControlTextarea1" name="Nome" rows="1" placeholder="Nome" required class="form-control"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
+                            <label for="exampleInputEmail1">Email</label>
                             <input type="email" class="form-control mb-3" id="exampleInputEmail1" name="Email" aria-describedby="emailHelp" placeholder="Email" required class="form-control">
                         </div>
                         <div class="form-group">

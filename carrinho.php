@@ -34,7 +34,8 @@ if (isset($_POST['adicionar'])) {
     if (mysqli_num_rows($consultaCarrinho) > 0) {
         $message[] = 'Produto já se encontra no carrinho!';
     } else {
-        mysqli_query($ligacao, "INSERT INTO carrinho (Id_utilizador, Nome, Preco, Imagem, Quantidade, StockProduto) VALUES('$Id_utilizador', '$Nome', '$Preco', '$Imagem', '$Quantidade', '$StockProduto')") or die('query failed');
+        mysqli_query($ligacao, "INSERT INTO carrinho (Id_utilizador, Nome, Preco, Imagem, Quantidade, StockProduto) VALUES('$Id_utilizador', '$Nome', '$Preco', '$Imagem', '$Quantidade', '$StockProduto')") 
+        or die('query failed');
         $message[] = 'Produto adicionado com sucesso!';
     }
 };

@@ -38,7 +38,4 @@ if ((isset($_POST['email'])) && (isset($_POST['passwd']))) {
         header("Location: login.php"); 
 }
 
-
-
-
 ?>
